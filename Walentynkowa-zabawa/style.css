@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+* {
+  font-family: 'Caveat', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  background-color: #722f37;
+  color: #ffffff;
+}
+
+/* aniamowane tlo */
+
+.heart-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #e63946;
+  animation: floatUp 5s linear infinite;
+  opacity: 0.8;
+  mask-border: radial-gradient(#000 69%, #0000 70%) 84.5%/50%;
+  clip-path: polygon(-42% 0, 50% 91%, 142% 0);
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+    opacity: 0;
+  }
+}
+
+.wrapped {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* poczatkowe napisy */
+
+.opening-credits {
+  text-align: center;
+  padding: 5%;
+  width: 70%;
+}
+
+/* font sizy */
+
+.opening-credits h1 {
+  font-size: 4em;
+  font-weight: 700;
+}
+
+.opening-credits h2 {
+  margin-top: 70px;
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.opening-credits p {
+  font-size: 1.4em;
+}
+
+.opening-credits ol {
+  list-style-position: inside;
+  font-size: 1.4em;
+}
+
+/* style kafelka */
+
+.card {
+  width: 50%;
+  text-align: center;
+  padding: 50px;
+  margin-bottom: 100px;
+
+  border-radius: 50px;
+  background: #722f37;
+  box-shadow: 35px 35px 70px #61282f, -35px -35px 70px #83363f;
+}
+
+.card h3 {
+  font-size: 3em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.card p {
+  font-size: 1.6em;
+}
+
+.card p.hint {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.card p.hidden-hint {
+  font-size: 1.4em;
+}
+
+.card input {
+  border-radius: 5px;
+  width: 30%;
+  padding: 10px;
+  font-size: 0.8em;
+}
+
+.card .author {
+  font-weight: 500;
+}
+
+/* ukryte elementy */
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 2s ease-in-out, visibility 2s ease-in-out;
+}
+
+button {
+  background: #e63946;
+  border: 1px solid #e63946;
+  opacity: 0.9;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  color: #ffffff;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: center;
+}
+
+button:hover,
+button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #ff4742;
+}
+
+button:active {
+  opacity: 0.5;
+}
+
+/* menu */
+
+.heart-link {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 2.5em;
+  color: #e63946;
+  opacity: 0.8;
+  text-decoration: none;
+  z-index: 1000;
+}

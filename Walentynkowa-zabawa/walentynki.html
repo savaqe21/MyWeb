@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Walentynki dla Zyzi</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="heart-container"></div>
+    <a
+      href="/Walentynkowa zabawa/365 powodów/powody365.html"
+      class="heart-link"
+      target="_blank"
+      ><i class="fa-solid fa-heart"></i
+    ></a>
+    <div class="wrapped">
+      <div class="opening-credits">
+        <h1>Witaj serduszko moje!</h1>
+        <p>
+          Stworzyłem tą stronkę specjalnie dla ciebie, na Walentynki, aby
+          wykorzystać ją i troche interaktywnie spędzić czas. Przy okazji na
+          końcu każdej zagadki czeka na ciebie część prezentu. Miłej zabawy
+          kochanie!
+        </p>
+
+        <h2>Zasady gry:</h2>
+        <p>Oto wyjaśnienie jak właściwie działa ta gra.</p>
+        <ol>
+          <li>
+            Poniżej znajdują się kafelki, każdy zawiera kolejną zagadkę i
+            podpowiedzi.
+          </li>
+          <li>
+            Po rozwiązaniu zagadki i wpisaniu hasła do kafelka, odblokowywuje
+            się kolejny kafelek.
+          </li>
+          <li>
+            Rozwiązaniem zagadki jest miejsce, w którym ukryta jest część
+            prezentu, a hasłem nazwa rzeczy, którą znalazłaś.
+          </li>
+          <li>Zagadek jest łącznie 5, powodzenia.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>Zagadka numer 1</h3>
+        <p>
+          Niedawno znajdowaliśmy się tam oboje. Oprócz części, w której byliśmy
+          jest tam inna największa przestrzeń tej rzeczy.
+        </p>
+        <button id="button1">Pokaz podpowiedź</button>
+        <p class="hidden" id="hint1">
+          Miejsce ukrycia znajduje się w tylnej części rzeczy, którą przywiozłem
+          cię ze szkoły.
+        </p>
+        <input type="text" id="inputBox1" placeholder="Wpisz hasło" />
+      </div>
+      <div class="card hidden" id="hiddenElement2">
+        <h3>Zagadka numer 2</h3>
+        <p>
+          Jest to miejsce blisko twojego pokoju, w którym znajduje się zapas
+          niezbędnej rzeczy do funkcjonowania każdego dnia.
+        </p>
+        <button id="button2">Pokaz podpowiedź</button>
+        <p class="hidden" id="hint2">
+          Tą niezbędną rzeczą jest papier toaletowy.
+        </p>
+        <input type="text" id="inputBox2" placeholder="Wpisz hasło" />
+      </div>
+      <div class="card hidden" id="hiddenElement3">
+        <h3>Zagadka numer 3</h3>
+        <p>
+          Miejsce ukrycia znajduje się w pewnej dużej rzeczy, jest ona mobilna i
+          może pomieścić kilka osób.
+        </p>
+        <button id="button3">Pokaz podpowiedź</button>
+        <p class="hidden" id="hint3">Chowa się tam przeważnie dokumenty.</p>
+        <input type="text" id="inputBox3" placeholder="Wpisz hasło" />
+      </div>
+      <div class="card hidden" id="hiddenElement4">
+        <h3>Zagadka numer 4</h3>
+        <p>
+          Przedmiot, na którym siadam kiedy idziesz wziąć prysznic. Nie siedzę
+          tam sam, lecz z kimś kto chce ze mną, ten mój wolny czas wtedy
+          spędzić.
+        </p>
+        <button id="button4">Pokaz podpowiedź</button>
+        <p class="hidden" id="hint4">
+          Tym przedmiotem jest łóżko, a ja gram tam w grę.
+        </p>
+        <input type="text" id="inputBox4" placeholder="Wpisz hasło" />
+      </div>
+      <div class="card hidden" id="hiddenElement5">
+        <h3>Zagadka numer 5</h3>
+        <p>
+          Chowasz tam coś czego często używasz np. wieczorem, aktualnie troche
+          mniej, bo przestałaś wykonywać pewną czynność.
+        </p>
+        <button id="button5">Pokaz podpowiedź</button>
+        <p class="hidden" id="hint5">
+          Rzeczą, którą tam chowasz są waciki kosmetyczne.
+        </p>
+        <input type="text" id="inputBox5" placeholder="Wpisz hasło" />
+      </div>
+      <div class="card hidden" id="hiddenElement6">
+        <h3>To już koniec</h3>
+        <p>
+          Mam nadzieję, że zabawa Ci się podobała. Pamiętaj, że Cię kocham
+          najmocniej i szczęśliwych walentynek.
+        </p>
+        <p class="author">Fabian &copy; 2025</p>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
