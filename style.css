@@ -1,5 +1,4 @@
-/* Import nowoczesnej czcionki */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
 * {
   margin: 0;
@@ -8,118 +7,130 @@
 }
 
 body {
-  background-color: #0f172a; /* Głęboki granat/czerń */
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
-  color: #f8fafc;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #050505; /* Prawdziwa głęboka czerń */
+  color: #a0a0a0;
+  font-family: 'Inter', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: 40px 20px;
+  overflow-x: hidden;
+}
+
+/* Tło z efektem siatki (Grid) - bardzo modny detal */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   width: 100%;
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 50px;
-  background: linear-gradient(to right, #38bdf8, #818cf8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.3));
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-align: left;
+  margin-bottom: 60px;
+  color: #fff;
+  letter-spacing: -2px;
 }
 
-/* Stylizacja sekcji jako kart */
+/* Układ Bento Box */
 .category {
-  background: rgba(30, 41, 59, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  padding: 30px;
-  margin-bottom: 24px;
-  backdrop-filter: blur(12px);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.category:hover {
-  transform: translateY(-5px);
-  border-color: rgba(56, 189, 248, 0.4);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+  margin-bottom: 60px;
+  border-top: 1px solid #222;
+  padding-top: 20px;
 }
 
 .category h2 {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #94a3b8;
+  font-size: 0.9rem;
+  color: #555;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-}
-
-.category h2::after {
-  content: "";
-  height: 1px;
-  flex-grow: 1;
-  background: rgba(255, 255, 255, 0.1);
-  margin-left: 15px;
+  letter-spacing: 3px;
+  font-weight: 600;
 }
 
 ul {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
 }
 
 li {
-  position: relative;
+  perspective: 1000px;
 }
 
 a {
-  display: block;
-  padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.03);
-  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  background: #0d0d0d;
+  color: #eee;
   text-decoration: none;
-  border-radius: 12px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid transparent;
+  border-radius: 4px; /* Bardziej surowy, nowoczesny wygląd */
+  border: 1px solid #1a1a1a;
+  font-weight: 400;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* Efekt najechania - karta "wychodzi" do przodu */
 a:hover {
-  background: rgba(56, 189, 248, 0.1);
-  color: #38bdf8;
-  border-color: rgba(56, 189, 248, 0.2);
-  padding-left: 28px;
+  background: #111;
+  border-color: #444;
+  color: #fff;
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* Mała strzałka pojawiająca się przy hoverze */
-a::before {
-  content: '→';
+/* Neonowy pasek z boku */
+a::after {
+  content: "";
   position: absolute;
-  left: 10px;
-  opacity: 0;
-  transition: all 0.3s ease;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: #fff; /* Czysta biel lub dowolny kolor neonowy */
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
 }
 
-a:hover::before {
-  opacity: 1;
-  left: 12px;
+a:hover::after {
+  transform: scaleY(1);
 }
 
-/* Responsywność dla mniejszych ekranów */
-@media (max-width: 600px) {
-  ul {
+/* Personalizacja kolorów dla konkretnych sekcji (opcjonalnie) */
+.category:nth-of-type(1) a:hover::after { background: #00f2ff; } /* Cyjan dla gier */
+.category:nth-of-type(2) a:hover::after { background: #7000ff; } /* Fiolet dla portfolio */
+.category:nth-of-type(3) a:hover::after { background: #ff0055; } /* Róż dla projektu dla partnerki */
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .category {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
   }
 }
