@@ -1,0 +1,35 @@
+/* Globalne ustawienia dla całej aplikacji */
+html {
+  scroll-behavior: smooth;
+  background-color: #0f172a; /* Slate 900 */
+}
+
+/* Klasa blokująca interakcję z kafelkiem po kliknięciu */
+.option-disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Dodatkowa mikro-animacja dla przycisków w menu */
+button {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Stylizacja paska przewijania w wersji Dark Mode */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a; /* Slate 900 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155; /* Slate 700 */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569; /* Slate 600 */
+}

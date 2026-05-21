@@ -1,0 +1,346 @@
+[
+  {
+    "id": 1,
+    "category": "A",
+    "question": "Jakie charakterystyczne cechy opisują projekt?",
+    "options": [
+      {
+        "text": "Tymczasowość – posiada wyraźnie określony początek i koniec w czasie.",
+        "isCorrect": true
+      },
+      {
+        "text": "Unikalność – jego rezultatem jest unikalny, niepowtarzalny produkt, usługa lub wynik.",
+        "isCorrect": true
+      },
+      {
+        "text": "Celowość – jest zorientowany na osiągnięcie konkretnego, zdefiniowanego rezultatu.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ograniczoność zasobów – realizowany jest w ramach określonego budżetu, ludzi i infrastruktury.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cykliczność – polega na stałym, rutynowym powtarzaniu tych samych operacji każdego dnia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Brak ryzyka – ze względu na planowanie, wynik końcowy jest zawsze w 100% pewny i przewidywalny.",
+        "isCorrect": false
+      },
+      {
+        "text": "Nieograniczony czas trwania – projekt kończy się dopiero wtedy, gdy skończą się środki finansowe organizacji.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "A",
+    "question": "Podaj przykłady przedsięwzięć biznesowych, które są uznawane za projekty w branży IT.",
+    "options": [
+      {
+        "text": "Wytworzenie i wdrożenie dedykowanego systemu klasy ERP dla sieci aptek.",
+        "isCorrect": true
+      },
+      {
+        "text": "Migracja lokalnej infrastruktury serwerowej banku do chmury obliczeniowej AWS.",
+        "isCorrect": true
+      },
+      {
+        "text": "Zaprojektowanie i oprogramowanie nowej aplikacji mobilnej do obsługi lojalnościowej klientów.",
+        "isCorrect": true
+      },
+      {
+        "text": "Bieżące utrzymanie systemów (obsługa zgłoszeń błędów na helpdesku / Linia 1).",
+        "isCorrect": false
+      },
+      {
+        "text": "Codzienne wykonywanie automatycznych kopii zapasowych baz danych (backup).",
+        "isCorrect": false
+      },
+      {
+        "text": "Opłacanie comiesięcznych faktur za licencje Microsoft 365 dla pracowników firmy.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "A",
+    "question": "Które cechy odróżniają projekt od procesu biznesowego?",
+    "options": [
+      {
+        "text": "Projekt tworzy unikalny rezultat, podczas gdy proces dostarcza powtarzalne, seryjne wyniki.",
+        "isCorrect": true
+      },
+      {
+        "text": "Projekt ma zdefiniowane ramy czasowe (koniec), a proces biznesowy ma charakter ciągły i powtarzalny.",
+        "isCorrect": true
+      },
+      {
+        "text": "W projekcie występuje znacznie wyższy poziom niepewności i ryzyka niż w rutynowym procesie.",
+        "isCorrect": true
+      },
+      {
+        "text": "Proces biznesowy wymaga powołania dedykowanego zespołu projektowego, a projekt realizują przypadkowi pracownicy.",
+        "isCorrect": false
+      },
+      {
+        "text": "Projekt nie posiada żadnych ograniczeń budżetowych, w przeciwieństwie do ściśle monitorowanego procesu.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "category": "A",
+    "question": "Jakie parametry tworzą tzw. „trójkąt ograniczeń” projektu?",
+    "options": [
+      {
+        "text": "Zakres (Scope) – co dokładnie ma zostać wykonane.",
+        "isCorrect": true
+      },
+      {
+        "text": "Czas / Harmonogram (Time) – w jakim terminie projekt musi zostać ukończony.",
+        "isCorrect": true
+      },
+      {
+        "text": "Koszt / Budżet (Cost) – jakie nakłady finansowe i zasoby są przeznaczone na realizację.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ryzyko (Risk) – stopień niepewności zdarzeń projektowych.",
+        "isCorrect": false
+      },
+      {
+        "text": "Komunikacja (Communication) – częstotliwość spotkań statusowych zespołu.",
+        "isCorrect": false
+      },
+      {
+        "text": "Innowacyjność (Innovation) – poziom zaawansowania technologicznego.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "category": "A",
+    "question": "Jakie są podstawowe parametry projektu (zgodnie z ogólnymi standardami zarządzania)?",
+    "options": [
+      {
+        "text": "Czas, Koszt, Zakres, Jakość, Ryzyko, Korzyści.",
+        "isCorrect": true
+      },
+      {
+        "text": "Liczba linii kodu, pojemność dysków twardych, przepustowość sieci LAN.",
+        "isCorrect": false
+      },
+      {
+        "text": "Staż pracy kierownika projektu, liczba wdrożonych poprawek, kapitał zakładowy spółki.",
+        "isCorrect": false
+      },
+      {
+        "text": "Lokalizacja biura, model procesorów serwerowych, struktura organizacyjna działu HR.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "category": "A",
+    "question": "Kto należy do kluczowych aktorów projektu po stronie klienta lub organizacji?",
+    "options": [
+      {
+        "text": "Sponsor projektu (Inicjator / Główny inwestor zapewniający budżet).",
+        "isCorrect": true
+      },
+      {
+        "text": "Komitet Sterujący (Organ decyzyjny reprezentujący interesy biznesu, użytkowników i dostawców).",
+        "isCorrect": true
+      },
+      {
+        "text": "Użytkownicy końcowi (Osoby, które będą bezpośrednio pracować na wdrażanym systemie).",
+        "isCorrect": true
+      },
+      {
+        "text": "Młodszy Programista (Junior Developer) zatrudniony u zewnętrznego wykonawcy.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pracownik zewnętrznej agencji ochrony dbający o bezpieczeństwo budynku wykonawcy.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "category": "A",
+    "question": "Czym charakteryzuje się projekt wewnętrzny w IT?",
+    "options": [
+      {
+        "text": "Klientem oraz wykonawcą projektu jest ta sama organizacja (np. dział IT tworzy system CRM dla działu sprzedaży tej samej firmy).",
+        "isCorrect": true
+      },
+      {
+        "text": "Finansowanie pochodzi bezpośrednio z wewnętrznego budżetu operacyjnego lub inwestycyjnego firmy.",
+        "isCorrect": true
+      },
+      {
+        "text": "Celem jest zazwyczaj optymalizacja procesów wewnętrznych, podniesienie efektywności lub budowa własnego produktu.",
+        "isCorrect": true
+      },
+      {
+        "text": "Wymaga bezwzględnego podpisania rygorystycznej handlowej umowy B2B obwarowanej karami sądowymi.",
+        "isCorrect": false
+      },
+      {
+        "text": "Wszelkie spory merytoryczne są rozstrzygane przez zewnętrzny Sąd Arbitrażowy.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "category": "A",
+    "question": "Czym charakteryzuje się projekt zewnętrzny w IT?",
+    "options": [
+      {
+        "text": "Jest realizowany przez firmę IT (wykonawcę) na rzecz innego, odrębnego podmiotu prawnego (klienta).",
+        "isCorrect": true
+      },
+      {
+        "text": "Podstawą formalną realizacji prac jest umowa cywilnoprawna (np. kontrakt o dzieło, umowa wdrożeniowa).",
+        "isCorrect": true
+      },
+      {
+        "text": "Wiąże się z ryzykiem formalno-prawnym, w tym z koniecznością przestrzegania kar umownych i zapisów SLA.",
+        "isCorrect": true
+      },
+      {
+        "text": "Rozliczany jest wyłącznie za pomocą wewnętrznych not księgowych, bez wystawiania faktur VAT.",
+        "isCorrect": false
+      },
+      {
+        "text": "Wykonawca ma pełne prawo do jednostronnej zmiany zakresu projektu bez zgody klienta.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "category": "A",
+    "question": "Które role mogą należeć do zespołu wykonawczego projektu IT?",
+    "options": [
+      {
+        "text": "Architekt Oprogramowania (Software Architect) odpowiedzialny za strukturę techniczną.",
+        "isCorrect": true
+      },
+      {
+        "text": "Analityk Biznesowo-Systemowy odpowiedzialny za zbieranie i dokumentowanie wymagań.",
+        "isCorrect": true
+      },
+      {
+        "text": "Programiści (Developers) oraz Inżynierowie DevOps wdrażający kod.",
+        "isCorrect": true
+      },
+      {
+        "text": "Inżynierowie Jakości / Testerzy (QA) weryfikujący poprawność działania oprogramowania.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sponsor Projektu podejmujący strategiczne decyzje o finansowaniu całego przedsięwzięcia.",
+        "isCorrect": false
+      },
+      {
+        "text": "Dyrektor Finansowy (CFO) klienta nadzorujący globalne sprawozdania roczne.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "category": "A",
+    "question": "W jakich warunkach projektowych zalecane jest stosowanie podejścia kaskadowego (Waterfall)?",
+    "options": [
+      {
+        "text": "Gdy wymagania projektowe są stabilne, w pełni zrozumiałe i nie powinny ulegać zmianom w trakcie prac.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gdy technologia jest dobrze znana, a zespół realizował już bardzo podobne systemy w przeszłości.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gdy klient bezwzględnie wymaga sztywnego zdefiniowania ostatecznej ceny i harmonogramu przed rozpoczęciem kodowania.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gdy tworzony jest system o krytycznym znaczeniu dla bezpieczeństwa (np. oprogramowanie medyczne, lotnicze), wymagający pełnej dokumentacji przed testami.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gdy wymagania są niejasne, bardzo dynamiczne i zmieniają się z tygodnia na tydzień.",
+        "isCorrect": false
+      },
+      {
+        "text": "W innowacyjnych projektach typu R&D (badawczo-rozwojowych) o gigantycznym stopniu niepewności.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "category": "A",
+    "question": "W jakich projektach preferowane są metodyki zwinne (Agile)?",
+    "options": [
+      {
+        "text": "Gdy wymagania są płynne, ewoluują, a klient uczy się swoich realnych potrzeb w trakcie rozwoju oprogramowania.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gdy kluczowe jest jak najszybsze dostarczenie na rynek działającej, bazowej wersji produktu (tzw. MVP).",
+        "isCorrect": true
+      },
+      {
+        "text": "Gdy projekt dotyczy innowacyjnych rozwiązań, startupów lub dynamicznych rynków (np. e-commerce, aplikacje społecznościowe).",
+        "isCorrect": true
+      },
+      {
+        "text": "Gdy klient chce stale uczestniczyć w procesie i ma możliwość redefiniowania priorytetów w każdym sprincie.",
+        "isCorrect": true
+      },
+      {
+        "text": "Gdy budżet, zakres i technologia są z góry zamrożone przez unijne dotacje i nie ma możliwości ich aneksowania.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "category": "A",
+    "question": "Które jednostki wchodzą w skład typowej struktury nadzoru i wspomagania projektu?",
+    "options": [
+      {
+        "text": "Biuro Zarządzania Projektami (PMO – Project Management Office) standaryzujące procesy.",
+        "isCorrect": true
+      },
+      {
+        "text": "Komitet Sterujący (Steering Committee) jako główny organ nadzorczo-decyzyjny.",
+        "isCorrect": true
+      },
+      {
+        "text": "Wsparcie Projektu (Project Support) odpowiedzialne za administrację, protokoły i logistykę.",
+        "isCorrect": true
+      },
+      {
+        "text": "Nadzór Projektu (Project Assurance) dbający o to, by projekt był realizowany zgodnie ze standardami i interesem stron.",
+        "isCorrect": true
+      },
+      {
+        "text": "Państwowa Inspekcja Pracy oraz Urząd Ochrony Konkurencji i Konsumentów.",
+        "isCorrect": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,378 @@
+[
+  {
+    "id": 35,
+    "category": "C",
+    "question": "Jaki akt prawny jest nadrzędny wobec wszystkich innych aktów prawnych w Rzeczypospolitej Polskiej?",
+    "options": [
+      { "text": "Konstytucja Rzeczypospolitej Polskiej.", "isCorrect": true },
+      { "text": "Kodeks Cywilny (KC).", "isCorrect": false },
+      {
+        "text": "Ustawa o prawie autorskim i prawach pokrewnych.",
+        "isCorrect": false
+      },
+      {
+        "text": "Rozporządzenie Ministra Cyfryzacji w sprawie standardów IT.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "category": "C",
+    "question": "Czym charakteryzują się umowy o dzieło i umowy zlecenia w kontekście branży IT?",
+    "options": [
+      {
+        "text": "Umowa o dzieło to umowa rezultatu – liczy się konkretny, mierzalny i niepowtarzalny efekt końcowy (np. napisanie i oddanie działającej aplikacji).",
+        "isCorrect": true
+      },
+      {
+        "text": "Umowa zlecenia to umowa starannego działania – liczy się sam proces wykonywania określonych czynności z należytą starannością (np. świadczenie wsparcia technicznego przez 40 godzin w miesiącu).",
+        "isCorrect": true
+      },
+      {
+        "text": "Umowa zlecenia w Polsce jest objęta ustawową minimalną stawką godzinową.",
+        "isCorrect": true
+      },
+      {
+        "text": "Umowa o dzieło zawsze wiąże się z koniecznością opłacania comiesięcznych, obowiązkowych składek na ubezpieczenie chorobowe dla każdego wykonawcy-studenta.",
+        "isCorrect": false
+      },
+      {
+        "text": "Zarówno umowa o dzieło, jak i umowa zlecenia gwarantują wykonawcy płatny urlop wypoczynkowy w wymiarze 26 dni z mocy Kodeksu pracy.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "category": "C",
+    "question": "Które formy działalności są odpowiednie i prawnie dostępne jako rozwiązania dla małych przedsiębiorców lub freelancerów IT?",
+    "options": [
+      {
+        "text": "Jednoosobowa Działalność Gospodarcza (JDG).",
+        "isCorrect": true
+      },
+      {
+        "text": "Działalność nierejestrowana (do określonego limitu przychodów).",
+        "isCorrect": true
+      },
+      {
+        "text": "Spółka z ograniczoną odpowiedzialnością (sp. z o.o.).",
+        "isCorrect": true
+      },
+      {
+        "text": "Spółka cywilna (będąca umową wspólników prowadzących JDG).",
+        "isCorrect": true
+      },
+      {
+        "text": "Spółka Akcyjna (S.A.) emitująca publiczne obligacje na Giełdzie Papierów Wartościowych.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "category": "C",
+    "question": "Czym charakteryzuje się Jednoosobowa Działalność Gospodarcza (JDG) w Polsce?",
+    "options": [
+      {
+        "text": "Przedsiębiorca odpowiada za zobowiązania firmy całym swoim majątkiem osobistym i małżeńskim (jeśli istnieje wspólność majątkowa).",
+        "isCorrect": true
+      },
+      {
+        "text": "Rejestracja działalności jest całkowicie darmowa i odbywa się za pośrednictwem systemu CEIDG.",
+        "isCorrect": true
+      },
+      {
+        "text": "Daje swobodę wyboru formy opodatkowania (np. ryczałt, podatek liniowy, skala podatkowa).",
+        "isCorrect": true
+      },
+      {
+        "text": "Posiada pełną, odrębną od właściciela osobowość prawną, przez co firma płaci podatek CIT.",
+        "isCorrect": false
+      },
+      {
+        "text": "Wymaga wniesienia minimalnego kapitału zakładowego w wysokości 5 000 zł przed startem firmy.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "category": "C",
+    "question": "Które formy działalności należą w myśl polskiego Kodeksu spółek handlowych do spółek kapitałowych?",
+    "options": [
+      {
+        "text": "Spółka z ograniczoną odpowiedzialnością (sp. z o.o.).",
+        "isCorrect": true
+      },
+      { "text": "Spółka akcyjna (S.A.).", "isCorrect": true },
+      { "text": "Prosta spółka akcyjna (PSA).", "isCorrect": true },
+      {
+        "text": "Spółka jawna (sp. j.) oraz Spółka partnerska (sp. p.).",
+        "isCorrect": false
+      },
+      { "text": "Spółka komandytowa (sp. k.).", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 40,
+    "category": "C",
+    "question": "Czym charakteryzują się spółki z ograniczoną odpowiedzialnością (sp. z o.o.)?",
+    "options": [
+      {
+        "text": "Wymagany minimalny kapitał zakładowy wynosi 5 000 zł.",
+        "isCorrect": true
+      },
+      {
+        "text": "Wspólnicy co do zasady nie odpowiadają za zobowiązania spółki swoim prywatnym majątkiem osobistym.",
+        "isCorrect": true
+      },
+      {
+        "text": "Posiadają pełną osobowość prawną i są wpisywane do Krajowego Rejestru Sądowego (KRS).",
+        "isCorrect": true
+      },
+      {
+        "text": "Mogą zostać założone przez system internetowy S24 lub tradycyjnie u notariusza.",
+        "isCorrect": true
+      },
+      {
+        "text": "Do ich utworzenia wystarczy bezpłatny wpis do Centralnej Ewidencji i Informacji o Działalności Gospodarczej (CEIDG).",
+        "isCorrect": false
+      },
+      {
+        "text": "Wspólnicy odpowiadają solidarnie i bez ograniczeń całym majątkiem za błędy zarządu.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "category": "C",
+    "question": "Czym charakteryzuje się Prosta Spółka Akcyjna (PSA), dedykowana m.in. dla startupów technologicznych?",
+    "options": [
+      {
+        "text": "Minimalny kapitał akcyjny wynosi zaledwie 1 zł.",
+        "isCorrect": true
+      },
+      {
+        "text": "Dopuszcza możliwość pokrycia akcji pracą, wiedzą lub świadczeniem usług na rzecz spółki.",
+        "isCorrect": true
+      },
+      {
+        "text": "Posiada elastyczną strukturę organów zarządzających (możliwość powołania Rady Dyrektorów).",
+        "isCorrect": true
+      },
+      {
+        "text": "Uproszczono procedury związane z likwidacją spółki oraz obrotem akcjami (forma dokumentowa, np. e-mail).",
+        "isCorrect": true
+      },
+      {
+        "text": "Wymaga bezwzględnego zamrożenia kapitału założycielskiego w kwocie minimum 100 000 zł.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "category": "C",
+    "question": "Które dane są niezbędne do prawidłowego wypełnienia dokumentów przy zakładaniu JDG?",
+    "options": [
+      {
+        "text": "Dane identyfikacyjne (PESEL, NIP jeśli posiadany, imię, nazwisko, data urodzenia).",
+        "isCorrect": true
+      },
+      {
+        "text": "Nazwa firmy, która musi bezwzględnie zawierać pełne imię i nazwisko przedsiębiorcy.",
+        "isCorrect": true
+      },
+      {
+        "text": "Kody PKD (Polska Klasyfikacja Działalności) określające profil usług (np. 62.01.Z dla programowania).",
+        "isCorrect": true
+      },
+      {
+        "text": "Adres do doręczeń oraz wskazanie wybranej formy opodatkowania dochodów.",
+        "isCorrect": true
+      },
+      {
+        "text": "Zaświadczenie o niekaralności z Krajowego Rejestru Karnego dla każdego wspólnika.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pisemna zgoda wszystkich sąsiadów na prowadzenie działalności w miejscu zamieszkania.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "category": "C",
+    "question": "Czym charakteryzuje się tzw. działalność nierejestrowana (nierejestrowa) w Polsce?",
+    "options": [
+      {
+        "text": "Może ją prowadzić osoba fizyczna, której przychód z działalności w żadnym miesiącu nie przekracza określonego limitu (75% kwoty minimalnego wynagrodzenia).",
+        "isCorrect": true
+      },
+      {
+        "text": "Nie wymaga zgłoszenia (wpisu) w rejestrze CEIDG, urzędzie skarbowym ani w GUS.",
+        "isCorrect": true
+      },
+      {
+        "text": "Osoba prowadząca taką działalność nie płaci z tego tytułu okresowych, stałych składek ZUS (społecznych ani zdrowotnych).",
+        "isCorrect": true
+      },
+      {
+        "text": "Całkowicie zwalnia z obowiązku rozliczania podatku dochodowego (PIT) i dokumentowania sprzedaży.",
+        "isCorrect": false
+      },
+      {
+        "text": "Może być prowadzona przez osobę, która wykonywała już standardową działalność gospodarczą w ciągu ostatnich 6 miesięcy.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "category": "C",
+    "question": "W jaki sposób można legalnie złożyć/wypełnić wniosek CEIDG-1 o rejestrację firmy?",
+    "options": [
+      {
+        "text": "Elektronicznie przez portal biznes.gov.pl, podpisując wniosek Profilem Zaufanym lub podpisem kwalifikowanym.",
+        "isCorrect": true
+      },
+      {
+        "text": "Tradycyjnie, wypełniając formularz papierowy i składając go osobiście w dowolnym urzędzie gminy lub miasta.",
+        "isCorrect": true
+      },
+      {
+        "text": "Listownie – wysyłając papierowy wniosek pocztą, pod warunkiem notarialnego poświadczenia podpisu przedsiębiorcy.",
+        "isCorrect": true
+      },
+      {
+        "text": "Telefonicznie – dzwoniąc na oficjalną infolinię Centrum Pomocy, gdzie konsultant rejestruje firmę na podstawie głosu.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "category": "C",
+    "question": "Jakie podstawowe elementy strukturalne wchodzą w skład poprawnie skonstruowanej umowy prawnej B2B w IT?",
+    "options": [
+      {
+        "text": "Kompartycja – data, miejsce zawarcia oraz precyzyjne oznaczenie stron (dane rejestrowe, NIP, KRS).",
+        "isCorrect": true
+      },
+      {
+        "text": "Preambuła – opcjonalna część wprowadzająca, opisująca intencje stron i tło zawarcia kontraktu.",
+        "isCorrect": true
+      },
+      {
+        "text": "Część merytoryczna – określenie przedmiotu umowy (zakresu prac), obowiązków stron, terminów oraz wynagrodzenia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Postanowienia końcowe – regulujące procedury zmian umowy (aneksy), prawo właściwe, klauzule poufności (NDA), kary umowne i podpisy.",
+        "isCorrect": true
+      },
+      {
+        "text": "Wykaz drzewa genealogicznego reprezentantów stron w celu weryfikacji pokrewieństwa.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "category": "C",
+    "question": "Jakie kodeksy stanowią nadrzędną i kluczową podstawę prawną dla realizacji i kontraktowania projektów IT w Polsce?",
+    "options": [
+      {
+        "text": "Kodeks Cywilny – regulujący umowy zlecenia, o dzieło, kontrakty B2B oraz kwestie odszkodowań.",
+        "isCorrect": true
+      },
+      {
+        "text": "Kodeks Pracy – w zakresie, w jakim do realizacji projektów wykorzystywani są pracownicy zatrudnieni na etatach.",
+        "isCorrect": true
+      },
+      {
+        "text": "Kodeks Postępowania Administracyjnego – jako główny motor tworzenia architektury kodu i baz danych.",
+        "isCorrect": false
+      },
+      {
+        "text": "Kodeks Drogowy – regulujący przepustowość pakietów sieciowych w światłowodach.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "category": "C",
+    "question": "Co reguluje polski Kodeks pracy w bezpośrednim kontekście zarządzania zespołem projektowym?",
+    "options": [
+      {
+        "text": "Maksymalny dozwolony czas pracy, limity nadgodzin, wymiar odpoczynku dobowego i tygodniowego pracowników.",
+        "isCorrect": true
+      },
+      {
+        "text": "Zasady BHP (Bezpieczeństwa i Higieny Pracy) na stanowiskach programistycznych.",
+        "isCorrect": true
+      },
+      {
+        "text": "Wymiar i zasady przyznawania urlopów wypoczynkowych, macierzyńskich oraz zwolnień lekarskich.",
+        "isCorrect": true
+      },
+      {
+        "text": "Wysokość kar umownych za opóźnienia w projektach wdrożeniowych między dwiema niezależnymi spółkami komercyjnymi.",
+        "isCorrect": false
+      },
+      {
+        "text": "Zasady licencjonowania oprogramowania open-source używanego przez programistów.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "category": "C",
+    "question": "Jakie formy współpracy/działalności są najpopularniejsze wśród programistów, testerów i architektów pracujących w modelu kontraktowym B2B?",
+    "options": [
+      {
+        "text": "Jednoosobowa Działalność Gospodarcza (JDG) rozliczana na rycjalcie lub podatku liniowym.",
+        "isCorrect": true
+      },
+      {
+        "text": "Współpraca za pośrednictwem zewnętrznych inkubatorów przedsiębiorczości (użyczających osobowości prawnej bez rejestracji własnej firmy).",
+        "isCorrect": true
+      },
+      {
+        "text": "Praca w ramach rolniczych spółdzielni produkcyjnych.",
+        "isCorrect": false
+      },
+      {
+        "text": "Powoływanie fundacji non-profit przy każdym nowym zleceniu na napisanie modułu systemu.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "category": "C",
+    "question": "Które z wymienionych form prawnych posiadają w Polsce pełną osobowość prawną?",
+    "options": [
+      {
+        "text": "Spółka z ograniczoną odpowiedzialnością (sp. z o.o.).",
+        "isCorrect": true
+      },
+      { "text": "Spółka akcyjna (S.A.).", "isCorrect": true },
+      { "text": "Prosta spółka akcyjna (PSA).", "isCorrect": true },
+      {
+        "text": "Spółka cywilna – będąca jedynie umową zobowiązaniową między przedsiębiorcami.",
+        "isCorrect": false
+      },
+      {
+        "text": "Spółka jawna – będąca spółką osobową, posiadającą jedynie zdolność prawną (tzw. ułomna osoba prawna).",
+        "isCorrect": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Symulator Testu - Zarządzanie Projektami (Dark Mode)</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class="bg-slate-900 text-slate-100 font-sans min-h-screen antialiased selection:bg-indigo-500/30"
+  >
+    <div class="max-w-3xl mx-auto px-3 py-4 md:py-8">
+      <header
+        class="bg-indigo-950 border border-indigo-900/50 text-white p-5 md:p-8 rounded-t-xl shadow-xl mb-4 md:mb-6 relative overflow-hidden"
+      >
+        <div
+          class="absolute top-0 right-0 w-32 h-32 bg-indigo-900 rounded-full transform translate-x-10 -translate-y-10 opacity-30"
+        ></div>
+        <h1
+          class="text-2xl md:text-3xl font-bold mb-1 relative z-10 tracking-tight text-indigo-100"
+        >
+          Zarządzanie Projektami
+        </h1>
+        <p class="text-indigo-300 text-xs md:text-sm relative z-10 font-medium">
+          Oficjalny symulator egzaminacyjny • Tryb Nocny 🌙
+        </p>
+      </header>
+
+      <main
+        id="menu-view"
+        class="bg-slate-800 border-x border-b border-slate-700/50 p-5 md:p-8 rounded-b-xl shadow-xl space-y-5"
+      >
+        <h2
+          class="text-lg md:text-xl font-semibold text-slate-200 border-b pb-3 border-slate-700"
+        >
+          Wybierz zakres materiału do nauki:
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+          <button
+            onclick="startQuiz('A')"
+            class="p-4 md:p-5 text-left border-2 border-slate-700 bg-slate-800/50 hover:border-indigo-500 hover:bg-slate-700 rounded-xl font-medium transition cursor-pointer flex flex-col justify-between group active:scale-[0.98]"
+          >
+            <span class="text-indigo-400 font-bold mb-1 text-base md:text-lg"
+              >Sekcja A</span
+            >
+            <span
+              class="text-slate-400 text-xs md:text-sm group-hover:text-slate-200"
+              >Fundamenty zarządzania projektami</span
+            >
+          </button>
+          <button
+            onclick="startQuiz('B')"
+            class="p-4 md:p-5 text-left border-2 border-slate-700 bg-slate-800/50 hover:border-indigo-500 hover:bg-slate-700 rounded-xl font-medium transition cursor-pointer flex flex-col justify-between group active:scale-[0.98]"
+          >
+            <span class="text-indigo-400 font-bold mb-1 text-base md:text-lg"
+              >Sekcja B</span
+            >
+            <span
+              class="text-slate-400 text-xs md:text-sm group-hover:text-slate-200"
+              >Metodyka PRINCE2 (Procesy i zasady)</span
+            >
+          </button>
+          <button
+            onclick="startQuiz('C')"
+            class="p-4 md:p-5 text-left border-2 border-slate-700 bg-slate-800/50 hover:border-indigo-500 hover:bg-slate-700 rounded-xl font-medium transition cursor-pointer flex flex-col justify-between group active:scale-[0.98]"
+          >
+            <span class="text-indigo-400 font-bold mb-1 text-base md:text-lg"
+              >Sekcja C</span
+            >
+            <span
+              class="text-slate-400 text-xs md:text-sm group-hover:text-slate-200"
+              >Umowy cywilnoprawne i prawo w IT</span
+            >
+          </button>
+        </div>
+
+        <div class="pt-3 border-t border-slate-700">
+          <button
+            onclick="startQuiz('ALL')"
+            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition cursor-pointer text-center text-base md:text-lg active:scale-[0.99]"
+          >
+            🔥 Uruchom PEŁNY TEST (Wszystkie 49 pytań)
+          </button>
+        </div>
+      </main>
+
+      <main
+        id="quiz-view"
+        class="bg-slate-800 border-x border-b border-slate-700/50 p-5 md:p-8 rounded-b-xl shadow-xl space-y-5 hidden"
+      >
+        <div class="w-full bg-slate-700 h-1.5 rounded-full overflow-hidden">
+          <div
+            id="progress-bar"
+            class="bg-indigo-500 h-full w-0 transition-all duration-300"
+          ></div>
+        </div>
+
+        <div
+          class="flex justify-between text-[10px] md:text-xs font-semibold text-slate-500 uppercase tracking-wider"
+        >
+          <span id="info-category">Kategoria</span>
+          <span id="info-counter">Pytanie 0 z 0</span>
+        </div>
+
+        <div
+          id="question-text"
+          class="text-lg md:text-xl font-semibold text-slate-100 leading-snug"
+        ></div>
+
+        <p
+          class="text-[11px] md:text-xs text-amber-400 bg-amber-950/30 border border-amber-900/50 px-3 py-2 rounded-lg font-medium leading-relaxed"
+        >
+          💡 Wskazówka: Zaznacz odpowiedzi. Pytanie zaliczone na 1 pkt tylko gdy
+          klikniesz wszystkie dobre i ZERO błędnych.
+        </p>
+
+        <div id="options-container" class="space-y-2.5 pt-1"></div>
+
+        <div
+          class="flex justify-between items-center pt-4 border-t border-slate-700"
+        >
+          <button
+            onclick="backToMenu()"
+            class="text-slate-400 hover:text-slate-200 font-medium transition text-xs md:text-sm cursor-pointer p-2"
+          >
+            ⬅ Menu
+          </button>
+          <button
+            id="next-btn"
+            onclick="nextQuestion()"
+            class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-5 rounded-lg transition text-sm md:text-base cursor-pointer hidden active:scale-[0.95]"
+          >
+            Dalej ➔
+          </button>
+        </div>
+      </main>
+
+      <main
+        id="results-view"
+        class="bg-slate-800 border-x border-b border-slate-700/50 p-6 md:p-8 rounded-b-xl shadow-xl text-center space-y-5 hidden"
+      >
+        <h2 class="text-xl md:text-2xl font-bold text-slate-100">
+          Wynik Twojego Egzaminu
+        </h2>
+        <div
+          class="inline-block bg-indigo-950/50 border border-indigo-900/50 px-6 py-4 md:px-8 md:py-6 rounded-2xl"
+        >
+          <div
+            id="final-score"
+            class="text-4xl md:text-5xl font-black text-indigo-400"
+          >
+            0 / 0
+          </div>
+          <div
+            class="text-[10px] font-bold text-indigo-500 uppercase tracking-widest mt-1"
+          >
+            Zdobyte punkty
+          </div>
+        </div>
+        <p
+          id="final-comment"
+          class="text-sm md:text-base font-medium text-slate-400 max-w-md mx-auto leading-relaxed"
+        ></p>
+        <div class="pt-2">
+          <button
+            onclick="backToMenu()"
+            class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl shadow transition cursor-pointer text-sm md:text-base"
+          >
+            Spróbuj ponownie
+          </button>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,568 @@
+[
+  {
+    "id": 13,
+    "category": "B",
+    "question": "Z czego składa się struktura metodyki PRINCE2?",
+    "options": [
+      {
+        "text": "Pryncypia (7 Zasad) – stanowiących fundament metodyki.",
+        "isCorrect": true
+      },
+      {
+        "text": "Tematy (7 Obszarów) – aspektów zarządzania, które należy stale monitorować.",
+        "isCorrect": true
+      },
+      {
+        "text": "Procesy (7 Kroków) – opisujących ścieżkę życia projektu od pomysłu do zamknięcia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Dostosowanie PRINCE2 do otoczenia projektowego (Tailoring).",
+        "isCorrect": true
+      },
+      {
+        "text": "Obszary Wiedzy (Knowledge Areas) oraz Grupy Procesów Egzaminacyjnych.",
+        "isCorrect": false
+      },
+      {
+        "text": "Wydarzenia (Events), Artefakty (Artifacts) oraz Role Scrumowe.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "category": "B",
+    "question": "Na jakie pytania projektowe odpowiadają poszczególne tematy w PRINCE2?",
+    "options": [
+      {
+        "text": "Uzasadnienie biznesowe odpowiada na pytanie: „Dlaczego?” realizujemy projekt.",
+        "isCorrect": true
+      },
+      {
+        "text": "Organizacja odpowiada na pytanie: „Kto?” jest za co odpowiedzialny w strukturze.",
+        "isCorrect": true
+      },
+      {
+        "text": "Jakość odpowiada na pytanie: „Co?” (jaki produkt o jakich cechach ma powstać).",
+        "isCorrect": true
+      },
+      {
+        "text": "Plany odpowiadają na pytania: „Jak? Za ile? Kiedy?” i przez kogo zostaną wykonane zadania.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ryzyko odpowiada na pytanie: „Co jeśli?” (identyfikacja i reakcja na niepewność).",
+        "isCorrect": true
+      },
+      {
+        "text": "Zmiana odpowiada na pytanie: „Jaki to ma wpływ?” (zarządzanie wnioskami o zmiany i konfiguracją).",
+        "isCorrect": true
+      },
+      {
+        "text": "Postępy odpowiadają na pytania: „Gdzie jesteśmy teraz? Dokąd zmierzamy? Czy kontynuować?”",
+        "isCorrect": true
+      },
+      {
+        "text": "Postępy odpowiadają na pytanie: „Kto zawinił w przypadku opóźnienia?”",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "category": "B",
+    "question": "Jakie procesy należą do metodyki PRINCE2?",
+    "options": [
+      {
+        "text": "Przygotowanie Projektu (SU – Starting up a Project) oraz Inicjowanie Projektu (IP – Initiating a Project).",
+        "isCorrect": true
+      },
+      {
+        "text": "Zarządzanie Strategiczne Projektem (DP – Directing a Project) realizowane przez Komitet Sterujący.",
+        "isCorrect": true
+      },
+      {
+        "text": "Sterowanie Etapem (CS – Controlling a Stage) oraz Zarządzanie Końcem Etapu (SB – Managing a Stage Boundary).",
+        "isCorrect": true
+      },
+      {
+        "text": "Zarządzanie Dostarczaniem Produktów (MP – Managing Product Delivery) oraz Zamykanie Projektu (CP – Closing a Project).",
+        "isCorrect": true
+      },
+      {
+        "text": "Planowanie Sprintu (Sprint Planning) oraz Codzienny Scrum (Daily Scrum).",
+        "isCorrect": false
+      },
+      {
+        "text": "Analiza Finansowa ROI oraz Pozyskiwanie Zgód Korporacyjnych.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "category": "B",
+    "question": "Jakie są pryncypia (zasady) PRINCE2?",
+    "options": [
+      {
+        "text": "Ciągła zasadność biznesowa, Korzystanie z doświadczeń, Zdefiniowane role i obowiązki.",
+        "isCorrect": true
+      },
+      {
+        "text": "Zarządzanie etapowe, Zarządzanie przez wyjątki, Koncentracja na produktach, Dostosowanie do otoczenia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Wytwarzanie oprogramowania w stałych iteracjach, Eliminacja marnotrawstwa, Samorganizacja zespołów.",
+        "isCorrect": false
+      },
+      {
+        "text": "Bezwzględna akceptacja każdego ryzyka, Elastyczność budżetowa, Hierarchia wojskowa.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "category": "B",
+    "question": "Czym jest PMBOK?",
+    "options": [
+      {
+        "text": "Standardem i zbiorem dobrych praktyk zarządzania projektami wydawanym przez Project Management Institute (PMI).",
+        "isCorrect": true
+      },
+      {
+        "text": "Opisem obszarów wiedzy (np. zarządzanie integracją, zakresem, czasem) i uniwersalnych narzędzi, a nie sztywną, ustrukturyzowaną metodyką krok po kroku.",
+        "isCorrect": true
+      },
+      {
+        "text": "Brytyjską rządową metodyką dedykowaną wyłącznie do zarządzania kryzysowego w administracji publicznej.",
+        "isCorrect": false
+      },
+      {
+        "text": "Systemem informatycznym (narzędziem klasy ERP) służącym do automatycznego generowania wykresów Ganta.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "category": "B",
+    "question": "Jakie są poziomy certyfikacji w klasycznej metodyce PRINCE2?",
+    "options": [
+      {
+        "text": "PRINCE2 Foundation – poziom podstawowy, potwierdzający znajomość terminologii i struktury.",
+        "isCorrect": true
+      },
+      {
+        "text": "PRINCE2 Practitioner – poziom zaawansowany, potwierdzający umiejętność zastosowania metodyki w realiach projektu.",
+        "isCorrect": true
+      },
+      { "text": "PRINCE2 Master / PMP Senior Executive.", "isCorrect": false },
+      {
+        "text": "PRINCE2 Associate, PRINCE2 Professional, PRINCE2 Expert.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "category": "B",
+    "question": "Czym charakteryzuje się proces Przygotowania Projektu (SU - Starting up a Project) w PRINCE2?",
+    "options": [
+      {
+        "text": "Jest to proces przedprojektowy, uruchamiany zanim zapadnie formalna decyzja o wydaniu dużych środków finansowych.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ma na celu upewnienie się, czy projekt ma sens biznesowy i czy warto w ogóle przystępować do jego szczegółowego planowania.",
+        "isCorrect": true
+      },
+      {
+        "text": "W jego ramach powstaje m.in. Założenie Projektu (Project Brief) oraz powoływane są kluczowe role (Kierownik Projektu, Przewodniczący Komitetu Sterującego).",
+        "isCorrect": true
+      },
+      {
+        "text": "Obejmuje pełne wytworzenie wszystkich końcowych produktów technologicznych i przekazanie ich klientowi.",
+        "isCorrect": false
+      },
+      {
+        "text": "Trwa przez cały okres realizacji projektu, aż do jego formalnej oceny i zamknięcia.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "category": "B",
+    "question": "Kto jest wskazany jako właściciel procesu przygotowania projektu (SU) i odpowiada za jego uruchomienie?",
+    "options": [
+      {
+        "text": "Zleceniodawca (Executive / Przewodniczący Komitetu Sterującego) – reprezentujący interes biznesowy organizacji.",
+        "isCorrect": true
+      },
+      {
+        "text": "Kierownik Projektu – przy czym fizycznie wykonuje on większość prac operacyjnych w tym procesie na zlecenie biznesu.",
+        "isCorrect": true
+      },
+      {
+        "text": "Analityk systemowy klienta, działający bez porozumienia z kadrą zarządzającą.",
+        "isCorrect": false
+      },
+      {
+        "text": "Kierownik Zespołu (Team Manager) odpowiedzialny za programowanie.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "category": "B",
+    "question": "Co należy do głównych celów procesu Inicjowania Projektu (IP - Initiating a Project)?",
+    "options": [
+      {
+        "text": "Stworzenie solidnych podstaw projektu poprzez wypracowanie Dokumentu Inicjującego Projekt (DIP / PID).",
+        "isCorrect": true
+      },
+      {
+        "text": "Uzyskanie wspólnego zrozumienia czynników krytycznych projektu, szczegółowego budżetu, harmonogramu oraz podejścia do zarządzania ryzykiem i jakością.",
+        "isCorrect": true
+      },
+      {
+        "text": "Umożliwienie Komitetowi Sterującemu podjęcia świadomej decyzji o formalnym zatwierdzeniu lub odrzuceniu projektu.",
+        "isCorrect": true
+      },
+      {
+        "text": "Bieżące przydzielanie codziennych mikrozadań dla programistów w pierwszym etapie prac.",
+        "isCorrect": false
+      },
+      {
+        "text": "Przedwczesne rozliczenie korzyści finansowych przed fizycznym rozpoczęciem prac inżynieryjnych.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "category": "B",
+    "question": "Kto jest głównym wykonawcą i „właścicielem” operacyjnym realizacji zadań w procesie Inicjowania Projektu (IP)?",
+    "options": [
+      { "text": "Kierownik Projektu (Project Manager).", "isCorrect": true },
+      {
+        "text": "Komitet Sterujący jako całość (wykonuje fizycznie analizy i plany).",
+        "isCorrect": false
+      },
+      {
+        "text": "Kierownik ds. Zmian (Change Manager) powołany z zewnętrznej firmy doradczej.",
+        "isCorrect": false
+      },
+      { "text": "Zewnętrzni audytorzy finansowi.", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 23,
+    "category": "B",
+    "question": "Co wchodzi w skład Dokumentu Inicjującego Projekt (DIP / PID - Project Initiation Documentation)?",
+    "options": [
+      {
+        "text": "Pełne, szczegółowe Uzasadnienie Biznesowe (Business Case).",
+        "isCorrect": true
+      },
+      {
+        "text": "Plan Projektu (Project Plan) określający etapy, terminy i budżet.",
+        "isCorrect": true
+      },
+      {
+        "text": "Strategie/podejścia zarządzania: Jakością, Ryzykiem, Zmianą (Konfiguracją) oraz Komunikacją.",
+        "isCorrect": true
+      },
+      {
+        "text": "Struktura Zespołu Zarządzania Projektem oraz szczegółowe Opisy Ról.",
+        "isCorrect": true
+      },
+      {
+        "text": "Kod źródłowy aplikacji wraz z dokumentacją techniczną API.",
+        "isCorrect": false
+      },
+      {
+        "text": "Wypisy z rejestru KRS wszystkich podwykonawców biorących udział w przetargu.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "category": "B",
+    "question": "Jakie zadania Kierownika Projektu obejmuje proces Sterowania Etapem (CS - Controlling a Stage)?",
+    "options": [
+      {
+        "text": "Autoryzowanie, przydzielanie oraz monitorowanie tzw. Paczek Prac (Work Packages) kierowanych do wykonawców.",
+        "isCorrect": true
+      },
+      {
+        "text": "Zbieranie informacji o postępach, ocena stanu etapu i zarządzanie bieżącymi zagadnieniami oraz ryzykiem.",
+        "isCorrect": true
+      },
+      {
+        "text": "Regularne raportowanie do Komitetu Sterującego za pomocą Raportów Okresowych (Highlight Reports).",
+        "isCorrect": true
+      },
+      {
+        "text": "Podejmowanie działań korygujących w ramach przyznanych mu przez Komitet tolerancji.",
+        "isCorrect": true
+      },
+      {
+        "text": "Zatwierdzanie zmian przekraczających poziom tolerancji bez konsultacji z Komitetem Sterującym.",
+        "isCorrect": false
+      },
+      {
+        "text": "Osobiste pisanie testów jednostkowych i naprawianie błędów w bazie danych.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "category": "B",
+    "question": "Czym charakteryzuje się proces Zarządzania Dostarczaniem Produktów (MP - Managing Product Delivery)?",
+    "options": [
+      {
+        "text": "Jest to proces realizowany na poziomie wykonawczym przez Kierownika Zespołu (Team Manager) lub sam zespół specjalistów.",
+        "isCorrect": true
+      },
+      {
+        "text": "Stanowi formalny interfejs (barierę) oddzielający Kierownika Projektu od fizycznego, technicznego procesu wytwórczego.",
+        "isCorrect": true
+      },
+      {
+        "text": "Obejmuje akceptację paczki prac, wykonanie produktów, weryfikację ich jakości oraz formalny zwrot (oddanie) gotowych produktów do Kierownika Projektu.",
+        "isCorrect": true
+      },
+      {
+        "text": "Polega na strategicznym zarządzaniu portfelem wszystkich spółek zależnych w holdingu IT.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "category": "B",
+    "question": "Na czym polega Zamykanie Projektu (CP - Closing a Project) i co obejmuje?",
+    "options": [
+      {
+        "text": "Przygotowanie projektu do formalnego, kontrolowanego zakończenia (zarówno planowanego, jak i przedwczesnego).",
+        "isCorrect": true
+      },
+      {
+        "text": "Weryfikację akceptacji produktów przez użytkowników oraz przekazanie ich do wsparcia operacyjnego (utrzymania).",
+        "isCorrect": true
+      },
+      {
+        "text": "Sporządzenie Raportu Końcowego (End Project Report) oraz Raportu z Doświadczeń (Lessons Learned Report).",
+        "isCorrect": true
+      },
+      {
+        "text": "Sformułowanie rekomendacji dla Komitetu Sterującego o formalnym zamknięciu projektu (sam proces CP nie zamyka projektu, robi to Komitet).",
+        "isCorrect": true
+      },
+      {
+        "text": "Automatyczne usunięcie wszystkich kont dostępowych i serwerów deweloperskich bez powiadomienia zespołu.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "category": "B",
+    "question": "Kto realizuje Zarządzanie Strategiczne Projektem (DP - Directing a Project) i w jakim celu?",
+    "options": [
+      { "text": "Komitet Sterujący (Steering Committee).", "isCorrect": true },
+      {
+        "text": "W celu podejmowania kluczowych decyzji inwestycyjnych, autoryzacji etapów, zatwierdzania DIP oraz pełnienia roli arbitra.",
+        "isCorrect": true
+      },
+      {
+        "text": "W celu odciążenia wyższej kadry kierowniczej z codziennego zarządzania operacyjnego (poprzez regułę zarządzania przez wyjątki).",
+        "isCorrect": true
+      },
+      {
+        "text": "Kierownik Zespołu programistycznego w celu przyspieszenia pisania kodu oprogramowania.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "category": "B",
+    "question": "Czym charakteryzuje się proces Zarządzania Końcem Etapu (SB - Managing a Stage Boundary)?",
+    "options": [
+      {
+        "text": "Uruchamiany jest pod koniec bieżącego etapu zarządczego przez Kierownika Projektu.",
+        "isCorrect": true
+      },
+      {
+        "text": "Służy dostarczeniu Komitetowi Sterującemu danych do oceny mijającego etapu i podjęcia decyzji o przejściu do kolejnego.",
+        "isCorrect": true
+      },
+      {
+        "text": "Obejmuje przygotowanie Planu Kolejnego Etapu (Next Stage Plan) oraz aktualizację Planu Projektu i Uzasadnienia Biznesowego.",
+        "isCorrect": true
+      },
+      {
+        "text": "Polega na natychmiastowym zwolnieniu z pracy wszystkich osób, które popełniły błędy w mijającym etapie.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "category": "B",
+    "question": "Czym specyficznym charakteryzuje się proces Zamykania Projektu (CP) w strukturze PRINCE2?",
+    "options": [
+      {
+        "text": "Zapewnia stały punkt odniesienia, zapobiegając dryfowaniu projektu i powstawaniu tzw. „wiecznych projektów”.",
+        "isCorrect": true
+      },
+      {
+        "text": "Może zostać uruchomiony w sposób wymuszony (przedwczesne zamknięcie) na wyraźne polecenie Komitetu Sterującego.",
+        "isCorrect": true
+      },
+      {
+        "text": "Wymaga udokumentowania wniosków w postaci rejestru doświadczeń, by przyszłe projekty mogły unikać tych samych błędów.",
+        "isCorrect": true
+      },
+      {
+        "text": "Wymaga od Kierownika Projektu samodzielnego podpisania protokołów końcowych bez zgody Zleceniodawcy.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "category": "B",
+    "question": "Jaki jest główny, fundamentalny cel procesu Zamykania Projektu?",
+    "options": [
+      {
+        "text": "Formalne potwierdzenie, że cele określone w DIP zostały osiągnięte lub udowodnienie, że dalsza realizacja nie ma sensu.",
+        "isCorrect": true
+      },
+      {
+        "text": "Uwolnienie zasobów ludzkich i materialnych oraz formalne przekazanie odpowiedzialności za produkt na struktury liniowe.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ukrycie niewygodnych błędów budżetowych przed radą nadzorczą spółki.",
+        "isCorrect": false
+      },
+      {
+        "text": "Zablokowanie klientowi możliwości zgłaszania jakichkolwiek roszczeń gwarancyjnych w przyszłości.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "category": "B",
+    "question": "Czym jest proces Zarządzania Strategicznego Projektem (DP - Directing a Project) w kontekście cyklu życia projektu?",
+    "options": [
+      {
+        "text": "Jest to jedyny proces PRINCE2, który trwa nieprzerwanie od momentu zatwierdzenia przygotowania projektu aż do jego ostatecznego zamknięcia.",
+        "isCorrect": true
+      },
+      {
+        "text": "Zapewnia dwukierunkową komunikację i nadzór właścicielski nad Kierownikiem Projektu ze strony Komitetu Sterującego.",
+        "isCorrect": true
+      },
+      {
+        "text": "Jest realizowany przez Project Managerów i Scrum Masterów na codziennych spotkaniach technicznych.",
+        "isCorrect": false
+      },
+      {
+        "text": "To zbiór procedur czysto księgowych i podatkowych związanych z amortyzacją wartości niematerialnych i prawnych.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "category": "B",
+    "question": "Co powinien zawierać Raport Okresowy (Highlight Report) przygotowywany przez Kierownika Projektu dla Komitetu Sterującego?",
+    "options": [
+      {
+        "text": "Podsumowanie postępów w bieżącym etapie w odniesieniu do założonego planu.",
+        "isCorrect": true
+      },
+      {
+        "text": "Status wykorzystania tolerancji (czasowych, budżetowych) oraz prognozy ich zachowania do końca etapu.",
+        "isCorrect": true
+      },
+      {
+        "text": "Kluczowe ryzyka i zagadnienia (Issues), które pojawiły się lub wymagają uwagi wyższego kierownictwa.",
+        "isCorrect": true
+      },
+      {
+        "text": "Zadania planowane do realizacji w kolejnym okresie sprawozdawczym.",
+        "isCorrect": true
+      },
+      {
+        "text": "Kompletne wyciągi bankowe i faktury źródłowe za zakupy drobnego sprzętu biurowego.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "category": "B",
+    "question": "Które elementy wskazano jako kluczowe mocne strony metodyki PRINCE2?",
+    "options": [
+      {
+        "text": "Uniwersalność i skalowalność – możliwość zastosowania w projektach o dowolnej skali, branży i kulturze organizacyjnej.",
+        "isCorrect": true
+      },
+      {
+        "text": "Jasno zdefiniowana struktura ról i odpowiedzialności (każdy wie, za co odpowiada i jakie ma uprawnienia).",
+        "isCorrect": true
+      },
+      {
+        "text": "Koncentracja na uzasadnieniu biznesowym – projekt jest kontynuowany tylko wtedy, gdy stale przynosi realne korzyści.",
+        "isCorrect": true
+      },
+      {
+        "text": "Zarządzanie przez wyjątki – oszczędność czasu kadry zarządzającej poprzez delegowanie uprawnień decyzyjnych w ramach tolerancji.",
+        "isCorrect": true
+      },
+      {
+        "text": "Dostarczanie gotowych wzorców projektowych kodu, schematów baz danych i narzędzi architektonicznych UML.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "category": "B",
+    "question": "Które elementy wskazano jako słabe strony lub typowe problemy związane ze stosowaniem PRINCE2?",
+    "options": [
+      {
+        "text": "Ryzyko nadmiernej biurokracji („Pompous PRINCE”) w przypadku braku lub nieumiejętnego zastosowania zasady dostosowania metodyki do skali projektu.",
+        "isCorrect": true
+      },
+      {
+        "text": "Skupienie na procesach, dokumentacji i formalizmie kosztem elastyczności inżynieryjnej.",
+        "isCorrect": true
+      },
+      {
+        "text": "Brak definicji konkretnych technik i narzędzi wykonawczych (metodyka mówi *co* i *kiedy* zrobić, ale nie narzuca np. technik programistycznych czy testowych).",
+        "isCorrect": true
+      },
+      {
+        "text": "Wymaga wysokiej dojrzałości projektowej organizacji, co utrudnia wdrożenie jej w małych, chaotycznych zespołach lub startupach.",
+        "isCorrect": true
+      },
+      {
+        "text": "Całkowity brak możliwości łączenia metodyki z podejściami zwinnego dostarczania produktów (np. PRINCE2 Agile).",
+        "isCorrect": false
+      }
+    ]
+  }
+]
