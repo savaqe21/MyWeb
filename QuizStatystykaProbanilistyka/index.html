@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fiszki do nauki probabilistyki i statystyki" />
+  <title>Fiszki — Probabilistyka &amp; Statystyka</title>
+
+  <!-- Tailwind CSS (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- React 18 -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+
+  <!-- Babel (JSX w przeglądarce) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; box-sizing: border-box; }
+    body { margin: 0; background: #09090b; }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 2px; }
+
+    .flip-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .flip-inner.flipped { transform: rotateY(180deg); }
+
+    .face {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .face-back { transform: rotateY(180deg); }
+
+    @keyframes pulse-bg {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .skeleton { animation: pulse-bg 1.8s ease-in-out infinite; background: #18181b; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" data-presets="react">
+    const { useState, useEffect, useCallback, useRef } = React;
+
+    /* ─────────────────────────────────────────────
+       SVG ICONS (Lucide-style, inline)
+    ───────────────────────────────────────────── */
+    function Svg({ size = 16, children, className = '' }) {
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+          strokeLinejoin="round" className={className}>
+          {children}
+        </svg>
+      );
+    }
+
+    const IcoChevronLeft  = ({size}) => <Svg size={size}><polyline points="15 18 9 12 15 6"/></Svg>;
+    const IcoChevronRight = ({size}) => <Svg size={size}><polyline points="9 18 15 12 9 6"/></Svg>;
+    const IcoArrowLeft    = ({size}) => <Svg size={size}><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></Svg>;
+    const IcoStar         = ({size}) => <Svg size={size}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></Svg>;
+    const IcoBookOpen     = ({size}) => <Svg size={size}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></Svg>;
+    const IcoZap          = ({size}) => <Svg size={size}><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></Svg>;
+    const IcoBarChart     = ({size}) => <Svg size={size}><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></Svg>;
+    const IcoCheck        = ({size}) => <Svg size={size}><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></Svg>;
+    const IcoRotate       = ({size}) => <Svg size={size}><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></Svg>;
+    const IcoRefresh      = ({size}) => <Svg size={size}><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></Svg>;
+    const IcoDashboard    = ({size}) => <Svg size={size}><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></Svg>;
+
+    /* ─────────────────────────────────────────────
+       PARSE ANSWER — rozbija "1) ... 2) ..." na elementy
+    ───────────────────────────────────────────── */
+    function parseAnswer(text) {
+      const regex = /(?:^|\s)(\d+)\)\s/g;
+      const matches = [];
+      let m;
+      while ((m = regex.exec(text)) !== null) {
+        matches.push({ index: m.index + (m[0].startsWith(' ') ? 1 : 0), num: m[1] });
+      }
+      if (matches.length === 0) return [{ type: 'p', content: text.trim() }];
+
+      const segs = [];
+      const intro = text.slice(0, matches[0].index).trim();
+      if (intro) segs.push({ type: 'p', content: intro });
+      matches.forEach((match, i) => {
+        const start = match.index + match.num.length + 2;
+        const end = i + 1 < matches.length ? matches[i + 1].index : text.length;
+        segs.push({ type: 'item', num: match.num, content: text.slice(start, end).trim() });
+      });
+      return segs;
+    }
+
+    /* ─────────────────────────────────────────────
+       LOADING SKELETON
+    ───────────────────────────────────────────── */
+    function LoadingSkeleton() {
+      return (
+        <div style={{ minHeight: '100vh', background: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px' }}>
+          <div style={{ width: '100%', maxWidth: '560px' }}>
+            <div className="skeleton" style={{ height: 24, width: 180, margin: '0 auto 28px' }} />
+            <div className="skeleton" style={{ height: 40, width: 300, margin: '0 auto 12px' }} />
+            <div className="skeleton" style={{ height: 18, width: 220, margin: '0 auto 36px' }} />
+            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginBottom: 32 }}>
+              <div className="skeleton" style={{ height: 76, width: 120 }} />
+              <div className="skeleton" style={{ height: 76, width: 120 }} />
+            </div>
+            <div style={{ display: 'flex', gap: 12 }}>
+              <div className="skeleton" style={{ flex: 1, height: 108 }} />
+              <div className="skeleton" style={{ flex: 1, height: 108 }} />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       DASHBOARD
+    ───────────────────────────────────────────── */
+    function Dashboard({ pytania, onStart }) {
+      const total    = pytania.length;
+      const required = pytania.filter(p => p.wymagane_na_3).length;
+
+      return (
+        <div className="min-h-screen bg-[#09090b] flex flex-col items-center justify-center px-4 py-16">
+
+          {/* Badge */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-medium mb-7 select-none"
+               style={{ background: 'rgba(76,29,149,0.25)', borderColor: 'rgba(109,40,217,0.35)', color: '#a78bfa' }}>
+            <IcoZap size={11} />
+            Probabilistyka &amp; Statystyka
+          </div>
+
+          {/* Headline */}
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-3 tracking-tight text-center">
+            Fiszki egzaminacyjne
+          </h1>
+          <p className="text-zinc-500 text-base text-center max-w-xs mb-10">
+            Przygotuj się do egzaminu z rachunku prawdopodobieństwa i statystyki.
+          </p>
+
+          {/* Stats */}
+          <div className="flex gap-3 mb-10">
+            {[
+              { value: total,    label: 'Wszystkich fiszek', color: '#ffffff' },
+              { value: required, label: 'Wymaganych na 3',   color: '#fbbf24' },
+            ].map(s => (
+              <div key={s.label} className="flex flex-col items-center justify-center rounded-xl px-6 py-4 border"
+                   style={{ background: 'rgba(24,24,27,0.7)', borderColor: 'rgba(63,63,70,0.6)', minWidth: 110 }}>
+                <span className="text-2xl font-bold" style={{ color: s.color }}>{s.value}</span>
+                <span className="text-xs text-zinc-500 mt-1 whitespace-nowrap">{s.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Mode cards */}
+          <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
+            <ModeCard
+              icon={IcoBookOpen} title="Wszystkie pytania"
+              desc={`${total} fiszek · Pełny zakres materiału`}
+              accent="#a78bfa" hoverBorderColor="rgba(109,40,217,0.45)"
+              arrowHover="#a78bfa" onClick={() => onStart('all')}
+            />
+            <ModeCard
+              icon={IcoStar} title="Wymagane na 3"
+              desc={`${required} fiszek · Minimum do zaliczenia`}
+              accent="#fbbf24" hoverBorderColor="rgba(180,83,9,0.5)"
+              arrowHover="#fbbf24" onClick={() => onStart('required')}
+            />
+          </div>
+
+          <p className="mt-8 text-xs select-none" style={{ color: '#3f3f46' }}>
+            Kliknij kartę, aby zobaczyć odpowiedź
+          </p>
+        </div>
+      );
+    }
+
+    function ModeCard({ icon: Icon, title, desc, accent, hoverBorderColor, arrowHover, onClick }) {
+      const [hovered, setHovered] = useState(false);
+      return (
+        <button onClick={onClick}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          style={{
+            flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
+            gap: 10, padding: 20, borderRadius: 16, textAlign: 'left', cursor: 'pointer',
+            background: hovered ? 'rgba(24,24,27,0.9)' : 'rgba(24,24,27,0.6)',
+            border: `1px solid ${hovered ? hoverBorderColor : 'rgba(63,63,70,0.7)'}`,
+            transition: 'all 0.25s ease',
+          }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: accent }}>
+            <Icon size={17} />
+            <span style={{ fontSize: 13, fontWeight: 600 }}>{title}</span>
+          </div>
+          <p style={{ fontSize: 12, color: '#71717a', lineHeight: 1.5, margin: 0 }}>{desc}</p>
+          <span style={{ fontSize: 12, color: hovered ? arrowHover : '#3f3f46', transition: 'color 0.2s' }}>
+            Rozpocznij →
+          </span>
+        </button>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       ANSWER RENDERER
+    ───────────────────────────────────────────── */
+    function AnswerContent({ text }) {
+      const segs = parseAnswer(text);
+      return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {segs.map((s, i) =>
+            s.type === 'p'
+              ? <p key={i} style={{ margin: 0, color: '#d4d4d8', fontSize: 14, lineHeight: 1.7 }}>{s.content}</p>
+              : (
+                <div key={i} style={{ display: 'flex', gap: 12 }}>
+                  <span style={{
+                    flexShrink: 0, width: 20, height: 20, borderRadius: '50%',
+                    background: 'rgba(76,29,149,0.4)', border: '1px solid rgba(109,40,217,0.45)',
+                    color: '#a78bfa', fontSize: 10, fontWeight: 700,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 2
+                  }}>{s.num}</span>
+                  <p style={{ margin: 0, color: '#d4d4d8', fontSize: 14, lineHeight: 1.7 }}>{s.content}</p>
+                </div>
+              )
+          )}
+        </div>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       FLASHCARD (3D flip)
+    ───────────────────────────────────────────── */
+    function Flashcard({ pytanie, isFlipped, onFlip }) {
+      return (
+        <div onClick={onFlip} role="button"
+             style={{ width: '100%', height: 400, perspective: '1400px', cursor: 'pointer', userSelect: 'none' }}>
+
+          <div className={`flip-inner${isFlipped ? ' flipped' : ''}`}
+               style={{ position: 'relative', width: '100%', height: '100%' }}>
+
+            {/* ── FRONT ── */}
+            <div className="face" style={{
+              position: 'absolute', inset: 0, borderRadius: 20,
+              background: '#18181b', border: '1px solid #27272a',
+              boxShadow: '0 0 40px rgba(0,0,0,0.6)',
+              display: 'flex', flexDirection: 'column', padding: 28, overflow: 'hidden',
+            }}>
+              {/* Top row */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
+                <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#52525b' }}>
+                  #{String(pytanie.id).padStart(2, '0')}
+                </span>
+                {pytanie.wymagane_na_3 && (
+                  <span style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 5,
+                    padding: '4px 10px', borderRadius: 999,
+                    background: 'rgba(120,53,15,0.25)', border: '1px solid rgba(180,83,9,0.35)',
+                    color: '#fbbf24', fontSize: 11, fontWeight: 500,
+                  }}>
+                    <IcoStar size={9} /> Wymagane na 3
+                  </span>
+                )}
+              </div>
+
+              {/* Question */}
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 8px' }}>
+                <p style={{ color: '#ffffff', fontSize: 18, fontWeight: 500, textAlign: 'center', lineHeight: 1.65, margin: 0 }}>
+                  {pytanie.pytanie}
+                </p>
+              </div>
+
+              {/* Hint */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, color: '#52525b', fontSize: 11, marginTop: 20 }}>
+                <IcoRotate size={11} /> Kliknij, aby zobaczyć odpowiedź
+              </div>
+            </div>
+
+            {/* ── BACK ── */}
+            <div className="face face-back" style={{
+              position: 'absolute', inset: 0, borderRadius: 20,
+              background: '#18181b', border: '1px solid #27272a',
+              boxShadow: '0 0 40px rgba(0,0,0,0.6)',
+              display: 'flex', flexDirection: 'column', padding: 28, overflow: 'hidden',
+            }}>
+              {/* Label */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#52525b', fontSize: 11, marginBottom: 14, flexShrink: 0 }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#7c3aed', display: 'inline-block' }} />
+                Odpowiedź
+              </div>
+
+              {/* Scrollable content */}
+              <div style={{ flex: 1, overflowY: 'auto', paddingRight: 4 }}>
+                <AnswerContent text={pytanie.odpowiedz} />
+              </div>
+
+              {/* Hint */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, color: '#52525b', fontSize: 11, marginTop: 16, flexShrink: 0 }}>
+                <IcoRotate size={11} /> Kliknij, aby wrócić do pytania
+              </div>
+            </div>
+
+          </div>
+        </div>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       COMPLETION MODAL
+    ───────────────────────────────────────────── */
+    function CompletionModal({ remembered, total, onRestart, onDashboard }) {
+      const pct = Math.round((remembered / total) * 100);
+      return (
+        <div style={{
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)',
+          backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center',
+          justifyContent: 'center', zIndex: 50, padding: 16
+        }}>
+          <div style={{
+            background: '#18181b', border: '1px solid #3f3f46', borderRadius: 20,
+            padding: 32, maxWidth: 360, width: '100%', textAlign: 'center',
+            boxShadow: '0 25px 60px rgba(0,0,0,0.5)'
+          }}>
+            <div style={{ fontSize: 48, marginBottom: 16 }}>🎉</div>
+            <h2 style={{ color: '#fff', fontSize: 20, fontWeight: 700, margin: '0 0 8px' }}>Sesja zakończona!</h2>
+            <p style={{ color: '#a1a1aa', fontSize: 14, lineHeight: 1.6, margin: '0 0 20px' }}>
+              Oznaczyłeś jako zapamiętane{' '}
+              <strong style={{ color: '#fff' }}>{remembered}</strong> z{' '}
+              <strong style={{ color: '#fff' }}>{total}</strong> fiszek{' '}
+              <span style={{ color: '#71717a' }}>({pct}%)</span>.
+            </p>
+
+            {/* Progress bar */}
+            <div style={{ height: 6, background: '#27272a', borderRadius: 999, marginBottom: 24, overflow: 'hidden' }}>
+              <div style={{ height: '100%', width: `${pct}%`, background: '#7c3aed', borderRadius: 999 }} />
+            </div>
+
+            <div style={{ display: 'flex', gap: 10 }}>
+              <button onClick={onRestart} style={{
+                flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                padding: '10px 16px', borderRadius: 12, cursor: 'pointer',
+                background: '#27272a', border: '1px solid #3f3f46', color: '#d4d4d8',
+                fontSize: 13, fontWeight: 500, transition: 'background 0.2s'
+              }}>
+                <IcoRefresh size={14} /> Od nowa
+              </button>
+              <button onClick={onDashboard} style={{
+                flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                padding: '10px 16px', borderRadius: 12, cursor: 'pointer',
+                background: 'rgba(76,29,149,0.35)', border: '1px solid rgba(109,40,217,0.45)',
+                color: '#c4b5fd', fontSize: 13, fontWeight: 500
+              }}>
+                <IcoDashboard size={14} /> Dashboard
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       QUIZ VIEW
+    ───────────────────────────────────────────── */
+    function Quiz({ pytania, mode, onBack }) {
+      const filtered = mode === 'required' ? pytania.filter(p => p.wymagane_na_3) : pytania;
+
+      const [current,    setCurrent]    = useState(0);
+      const [isFlipped,  setIsFlipped]  = useState(false);
+      const [remembered, setRemembered] = useState(new Set());
+      const [finished,   setFinished]   = useState(false);
+      const [changing,   setChanging]   = useState(false);
+
+      const pytanie = filtered[current];
+      const isLast  = current === filtered.length - 1;
+      const isFirst = current === 0;
+      const progress = ((current + 1) / filtered.length) * 100;
+
+      function goTo(idx) {
+        if (changing) return;
+        setChanging(true);
+        setIsFlipped(false);
+        setTimeout(() => { setCurrent(idx); setChanging(false); }, 220);
+      }
+
+      function handleNext() {
+        if (isLast) setFinished(true);
+        else goTo(current + 1);
+      }
+
+      function handlePrev() { if (!isFirst) goTo(current - 1); }
+
+      function handleRemember() {
+        setRemembered(prev => {
+          const next = new Set(prev);
+          next.has(pytanie.id) ? next.delete(pytanie.id) : next.add(pytanie.id);
+          return next;
+        });
+        handleNext();
+      }
+
+      function handleRestart() {
+        setCurrent(0); setIsFlipped(false);
+        setRemembered(new Set()); setFinished(false);
+      }
+
+      const isRemembered = remembered.has(pytanie.id);
+
+      return (
+        <div style={{ minHeight: '100vh', background: '#09090b', display: 'flex', flexDirection: 'column' }}>
+
+          {/* ── TOP BAR ── */}
+          <header style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '14px 20px', borderBottom: '1px solid rgba(24,24,27,0.9)'
+          }}>
+            <button onClick={onBack} style={{
+              display: 'flex', alignItems: 'center', gap: 6, background: 'none',
+              border: 'none', cursor: 'pointer', color: '#71717a', fontSize: 13, padding: 0,
+              transition: 'color 0.2s'
+            }}
+              onMouseEnter={e => e.currentTarget.style.color = '#d4d4d8'}
+              onMouseLeave={e => e.currentTarget.style.color = '#71717a'}>
+              <IcoArrowLeft size={15} /> Powrót
+            </button>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, color: '#71717a' }}>
+              <IcoBarChart size={13} style={{ color: '#7c3aed' }} />
+              <span style={{ color: '#e4e4e7', fontWeight: 600 }}>{remembered.size}</span>
+              <span>/ {filtered.length} zapamiętanych</span>
+            </div>
+
+            <span style={{ fontSize: 13, color: '#71717a' }}>
+              <strong style={{ color: '#fff' }}>{current + 1}</strong> / {filtered.length}
+            </span>
+          </header>
+
+          {/* ── PROGRESS BAR ── */}
+          <div style={{ height: 2, background: '#18181b' }}>
+            <div style={{
+              height: '100%', background: '#7c3aed', borderRadius: 999,
+              width: `${progress}%`, transition: 'width 0.5s cubic-bezier(0.4,0,0.2,1)'
+            }} />
+          </div>
+
+          {/* ── CARD AREA ── */}
+          <main style={{
+            flex: 1, display: 'flex', flexDirection: 'column',
+            alignItems: 'center', justifyContent: 'center', padding: '40px 16px'
+          }}>
+            <div style={{ width: '100%', maxWidth: 640 }}>
+
+              <Flashcard pytanie={pytanie} isFlipped={isFlipped} onFlip={() => setIsFlipped(f => !f)} />
+
+              {/* ── NAVIGATION ── */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 20, gap: 10 }}>
+
+                <NavBtn onClick={handlePrev} disabled={isFirst || changing}>
+                  <IcoChevronLeft size={15} /> Poprzednia
+                </NavBtn>
+
+                <button onClick={handleRemember} disabled={changing} style={{
+                  display: 'flex', alignItems: 'center', gap: 8,
+                  padding: '10px 20px', borderRadius: 12, cursor: changing ? 'not-allowed' : 'pointer',
+                  fontSize: 13, fontWeight: 500, border: '1px solid',
+                  transition: 'all 0.2s',
+                  background: isRemembered ? 'rgba(6,78,59,0.4)' : 'rgba(76,29,149,0.35)',
+                  borderColor: isRemembered ? 'rgba(5,150,105,0.45)' : 'rgba(109,40,217,0.45)',
+                  color: isRemembered ? '#34d399' : '#a78bfa',
+                  opacity: changing ? 0.5 : 1,
+                }}>
+                  <IcoCheck size={15} />
+                  {isRemembered ? 'Zapamiętane ✓' : 'Rozumiem'}
+                </button>
+
+                <NavBtn onClick={handleNext} disabled={changing}>
+                  {isLast ? 'Zakończ' : 'Następna'} <IcoChevronRight size={15} />
+                </NavBtn>
+
+              </div>
+
+              {/* ── DOT PAGINATION ── */}
+              {filtered.length <= 30 && (
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5, marginTop: 24, flexWrap: 'wrap' }}>
+                  {filtered.map((item, i) => (
+                    <button key={i} onClick={() => goTo(i)}
+                      style={{
+                        borderRadius: 999, border: 'none', cursor: 'pointer', padding: 0,
+                        height: 6, transition: 'all 0.2s',
+                        width: i === current ? 16 : 6,
+                        background: i === current
+                          ? '#7c3aed'
+                          : remembered.has(item.id) ? 'rgba(5,150,105,0.65)' : '#3f3f46',
+                      }}
+                      aria-label={`Fiszka ${i + 1}`}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          </main>
+
+          {finished && (
+            <CompletionModal
+              remembered={remembered.size} total={filtered.length}
+              onRestart={handleRestart} onDashboard={onBack}
+            />
+          )}
+        </div>
+      );
+    }
+
+    function NavBtn({ onClick, disabled, children }) {
+      return (
+        <button onClick={onClick} disabled={disabled} style={{
+          display: 'flex', alignItems: 'center', gap: 8,
+          padding: '10px 20px', borderRadius: 12,
+          cursor: disabled ? 'not-allowed' : 'pointer',
+          background: 'rgba(24,24,27,0.8)', border: '1px solid #27272a',
+          color: '#a1a1aa', fontSize: 13, fontWeight: 500,
+          opacity: disabled ? 0.25 : 1, transition: 'all 0.2s',
+        }}
+          onMouseEnter={e => { if (!disabled) { e.currentTarget.style.borderColor = '#3f3f46'; e.currentTarget.style.color = '#e4e4e7'; } }}
+          onMouseLeave={e => { e.currentTarget.style.borderColor = '#27272a'; e.currentTarget.style.color = '#a1a1aa'; }}>
+          {children}
+        </button>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       ROOT APP
+    ───────────────────────────────────────────── */
+    function App() {
+      const [pytania, setPytania] = useState([]);
+      const [loading, setLoading] = useState(true);
+      const [error,   setError]   = useState(null);
+      const [mode,    setMode]    = useState(null);
+
+      useEffect(() => {
+        fetch('./pytania.json')
+          .then(res => {
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return res.json();
+          })
+          .then(data => {
+            if (!data?.pytania_egzaminacyjne) throw new Error('Nieprawidłowy format JSON');
+            setPytania(data.pytania_egzaminacyjne);
+            setLoading(false);
+          })
+          .catch(err => { setError(err.message); setLoading(false); });
+      }, []);
+
+      if (loading) return <LoadingSkeleton />;
+
+      if (error) return (
+        <div style={{ minHeight: '100vh', background: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}>
+          <div style={{ textAlign: 'center' }}>
+            <p style={{ color: '#71717a', fontSize: 14, marginBottom: 8 }}>Nie udało się załadować danych</p>
+            <p style={{ color: '#f87171', fontFamily: 'monospace', fontSize: 12, background: '#18181b', border: '1px solid #27272a', borderRadius: 8, padding: '8px 16px' }}>{error}</p>
+            <p style={{ color: '#52525b', fontSize: 12, marginTop: 12 }}>
+              Upewnij się, że plik <code style={{ color: '#a1a1aa' }}>pytania.json</code> jest w tym samym folderze co <code style={{ color: '#a1a1aa' }}>index.html</code>.
+            </p>
+          </div>
+        </div>
+      );
+
+      if (mode) return <Quiz pytania={pytania} mode={mode} onBack={() => setMode(null)} />;
+      return <Dashboard pytania={pytania} onStart={setMode} />;
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+{
+  "pytania_egzaminacyjne": [
+    {
+      "id": 1,
+      "pytanie": "Pojęcie probabilistyki i metod probabilistycznych.",
+      "wymagane_na_3": true,
+      "odpowiedz": "Probabilistyka (rachunek prawdopodobieństwa) to dział matematyki zajmujący się badaniem prawidłowości rządzących zdarzeniami losowymi. Metody probabilistyczne to techniki matematyczne i algorytmiczne, które wykorzystują aparat rachunku prawdopodobieństwa do modelowania, analizy i rozwiązywania problemów, w których występuje niepewność, losowość lub niepełna informacja (np. w teorii kolejek, analizie ryzyka czy algorytmach randomizowanych)."
+    },
+    {
+      "id": 2,
+      "pytanie": "Pojęcie statystyki. Populacja i próba statystyczna.",
+      "wymagane_na_3": true,
+      "odpowiedz": "Statystyka to nauka zajmująca się zbieraniem, porządkowaniem, analizą i interpretacją danych liczbowych opisujących zjawiska masowe. Populacja (zbiorowość statystyczna) to pełny zbiór wszystkich elementów (osób, obiektów, zdarzeń), które posiadają badaną cechę i podlegają badaniu. Próba statystyczna to podzbiór elementów wybrany z populacji w sposób celowy lub losowy, który jest bezpośrednio poddawany badaniu w celu wyciągnięcia wniosków o całej populacji."
+    },
+    {
+      "id": 3,
+      "pytanie": "Zastosowania metod probabilistycznych i statystycznych.",
+      "odpowiedz": "W informatyce i technice: analiza algorytmów, uczenie maszynowe (Machine Learning) i sztuczna inteligencja, przetwarzanie sygnałów, teoria informacji i kodowania, testowanie oprogramowania, niezawodność systemów IT oraz symulacje komputerowe (np. metody Monte Carlo). W innych dziedzinach: ekonomia i finanse (prognozowanie rynkowe, wycena ryzyka), medycyna (badania kliniczne leków), socjologia (badania opinii publicznej) oraz kontrola jakości w produkcji."
+    },
+    {
+      "id": 5,
+      "pytanie": "Rodzaje cech i szeregów w statystyce opisowej.",
+      "odpowiedz": "Cechy dzielą się na: 1) Jakościowe (niemierzalne) – opisują właściwości (np. płeć, kolor). 2) Ilościowe (mierzalne) – opisują wielkości i dzielą się na skokowe (dyskrętne, np. liczba dzieci) oraz ciągłe (np. wzrost, czas). Szeregi statystyczne to uporządkowane dane. Wyróżniamy szeregi: szczegółowy (lista wszystkich wartości), rozdzielczy punktowy (dla cech skokowych – wartości i ich liczebności) oraz rozdzielczy przedziałowy/strukturalny (dla cech ciągłych – przedziały klasowe i ich liczebności)."
+    },
+    {
+      "id": 6,
+      "pytanie": "Miary tendencji centralnej (średnie).",
+      "wymagane_na_3": true,
+      "odpowiedz": "Miary te wskazują wokół jakiej wartości skupiają się badane obserwacje. Dzielą się na klasyczne: średnia arytmetyczna (suma wartości podzielona przez ich liczbę), średnia geometryczna, średnia harmoniczna; oraz pozycyjne: mediana (wartość środkowa w uporządkowanym ciągu danych, dzieląca próbę na pół) i dominanta/moda (wartość występująca najczęściej)."
+    },
+    {
+      "id": 7,
+      "pytanie": "Miary zróżnicowania (dyspersji).",
+      "wymagane_na_3": true,
+      "odpowiedz": "Określają stopień rozproszenia wartości wokół miar tendencji centralnej. Wyróżniamy miary klasyczne: wariancja (średnia kwadratów odchyleń od średniej), odchylenie standardowe (pierwiastek z wariancji, ma tę samą jednostkę co badana cecha) i odchylenie przeciętne; oraz miary pozycyjne: rozstęp (różnica między wartością maksymalną a minimalną), rozstęp kwartylowy (IQR = Q3 - Q1) i odchylenie ćwiartkowe."
+    },
+    {
+      "id": 8,
+      "pytanie": "Rodzaje rozkładów empirycznych i relacje między miarami.",
+      "odpowiedz": "Rozkłady empiryczne opisują strukturę badanej próby. Ze względu na asymetrię dzielą się na: 1) Symetryczne – gdzie średnia (x), mediana (Me) i dominanta (Do) są sobie równe (x = Me = Do). 2) Asymetryczne prawostronnie (asymetria dodatnia) – z długim prawym ogonem rozkładu, gdzie x > Me > Do. 3) Asymetryczne lewostronnie (asymetria ujemna) – z długim lewym ogonem rozkładu, gdzie x < Me < Do."
+    },
+    {
+      "id": 9,
+      "pytanie": "Zdarzenie losowe. Przestrzeń zdarzeń. Działania na zbiorach zdarzeń.",
+      "odpowiedz": "Przestrzeń zdarzeń elementarnych (Omega) to zbiór wszystkich możliwych, wykluczających się wyników doświadczenia losowego. Zdarzenie losowe (A) to dowolny podzbiór przestrzeni Omega. Działania na zdarzeniach odpowiadają działaniom na zbiorach: Suma (A tło B) – zajdzie zdarzenie A lub zdarzenie B; Iloczyn/Część wspólna (A koniunkcja B) – zajdzie jednocześnie zdarzenie A i B; Różnica (A \\ B) – zajdzie zdarzenie A, ale nie zajdzie B; Zdarzenie przeciwne (A') – zdarzenie, które zachodzi wtedy i tylko wtedy, gdy nie zachodzi A."
+    },
+    {
+      "id": 10,
+      "pytanie": "Pojęcie i własności prawdopodobieństwa. Definicja aksjomatyczna.",
+      "wymagane_na_3": true,
+      "odpowiedz": "Prawdopodobieństwo to miara szansy zajścia danego zdarzenia losowego, będąca funkcją przyporządkowującą zdarzeniom wartości z przedziału [0, 1]. Definicja aksjomatyczna (Kołmogorowa) określa prawdopodobieństwo P jako funkcję spełniającą trzy aksjomaty: 1) P(A) >= 0 dla każdego zdarzenia A. 2) P(Omega) = 1 (prawdopodobieństwo zdarzenia pewnego wynosi 1). 3) Jeśli zdarzenia A1, A2, ... są parami rozłączne, to P(A1 u A2 u ...) = P(A1) + P(A2) + ... Główne własności: P(zbioru pustego) = 0, P(A') = 1 - P(A), jeśli A zawiera się w B to P(A) <= P(B)."
+    },
+    {
+      "id": 11,
+      "pytanie": "Klasyczna, statystyczna i geometryczna definicja prawdopodobieństwa.",
+      "odpowiedz": "1) Klasyczna: Stosuje się, gdy przestrzeń Omega jest skończona, a wszystkie zdarzenia elementarne są jednakowo prawdopodobne. P(A) = |A| / |Omega| (liczba zdarzeń sprzyjających przez liczbę wszystkich). 2) Statystyczna: Stosowana przy wielokrotnym powtarzaniu doświadczenia. Prawdopodobieństwo to granica, do której dąży częstość częstościowa występowania zdarzenia przy liczbie prób dążącej do nieskończoności. 3) Geometryczna: Stosowana, gdy przestrzeń Omega jest zbiorem nieskończonym o skończonej mierze (długości, polu, objętości). P(A) = miara(A) / miara(Omega)."
+    },
+    {
+      "id": 12,
+      "pytanie": "Zdarzenia niezależne. Prawdopodobieństwo warunkowe.",
+      "odpowiedz": "Prawdopodobieństwo warunkowe P(A|B) to prawdopodobieństwo zajścia zdarzenia A pod warunkiem, że zaszło zdarzenie B. Definiuje się je wzorem: P(A|B) = P(A i B) / P(B), gdzie P(B) > 0. Zdarzenia A i B są niezależne, jeśli fakt zajścia jednego z nich nie wpływa na prawdopodobieństwo zajścia drugiego. Matematycznie niezależność zachodzi wtedy i tylko wtedy, gdy: P(A i B) = P(A) * P(B) (co jest równoważne P(A|B) = P(A))."
+    },
+    {
+      "id": 13,
+      "pytanie": "Drzewka stochastyczne. Zasady obliczania prawdopodobieństwa.",
+      "odpowiedz": "Drzewo stochastyczne (probabilistyczne) to graficzna metoda reprezentacji wieloetapowych doświadczeń losowych. Gałęzie drzewa reprezentują możliwe wyniki w kolejnych etapach, a na krawędziach zapisuje się prawdopodobieństwa warunkowe. Zasady obliczania: 1) Reguła iloczynów (wzdłuż ścieżki) – prawdopodobieństwo końcowego zdarzenia reprezentowanego przez całą ścieżkę od korzenia do liścia jest równe iloczynowi prawdopodobieństw na krawędziach tworzących tę ścieżkę. 2) Reguła sum (między ścieżkami) – jeśli interesujące nas zdarzenie składa się z kilku osobnych ścieżek, sumujemy ich prawdopodobieństwa."
+    },
+    {
+      "id": 14,
+      "pytanie": "Prawdopodobieństwo całkowite. Wzór Bayesa.",
+      "odpowiedz": "Twierdzenie o prawdopodobieństwie całkowitym pozwala obliczyć prawdopodobieństwo zdarzenia A, które może zajść wraz z jednym z wykluczających się zdarzeń B1, B2,...,Bn stanowiących pełny podział przestrzeni Omega: P(A) = suma[P(A|Bi) * P(Bi)]. Wzór Bayesa służy do weryfikacji prawdopodobieństwa hipotez (zdarzeń Bi) po tym, jak zaobserwowano skutek (zajście zdarzenia A): P(Bk|A) = [P(A|Bk) * P(Bk)] / P(A) = [P(A|Bk) * P(Bk)] / suma[P(A|Bi) * P(Bi)]."
+    },
+    {
+      "id": 15,
+      "pytanie": "Zmienna losowa typu dyskretnego i absolutnie ciągłego. Przykłady.",
+      "wymagane_na_3": true,
+      "odpowiedz": "Zmienna losowa to funkcja przypisująca wynikom doświadczenia losowego liczby rzeczywiste. 1) Zmienna dyskretna (skokowa) – przyjmuje skończoną lub przeliczalną liczbę wartości. Przykład: liczba wyrzuconych oczek kostką, liczba błędów w kodzie. 2) Zmienna absolutnie ciągła – przyjmuje dowolne wartości z pewnego przedziału liczbowego (nieprzeliczalnego). Prawdopodobieństwo przyjęcia konkretnej pojedynczej wartości wynosi 0. Przykład: czas pracy procesora do awarii, wzrost człowieka."
+    },
+    {
+      "id": 16,
+      "pytanie": "Funkcja prawdopodobieństwa, dystrybuanta i parametry zmiennej dyskretnej.",
+      "odpowiedz": "Funkcja prawdopodobieństwa przypisuje każdej możliwej wartości xi zmiennej dyskretnej jej prawdopodobieństwo: p(xi) = P(X = xi). Dystrybuanta F(x) to funkcja określająca prawdopodobieństwo, że zmienna losowa przyjmie wartość mniejszą od x: F(x) = P(X < x) = suma[p(xi)] dla xi < x. Główne parametry: Wartość oczekiwana E(X) = suma[xi * p(xi)] (środek ciężkości rozkładu) oraz Wariancja V(X) = E(X^2) - [E(X)]^2 = suma[(xi - E(X))^2 * p(xi)] (miara rozproszenia)."
+    },
+    {
+      "id": 17,
+      "pytanie": "Rozkłady zero-jedynkowy, Bernoullego i Poissona. Własności.",
+      "odpowiedz": "1) Zero-jedynkowy: Modeluje pojedyncze doświadczenie o dwóch wynikach (sukces z prawd. p, porażka 1-p). E(X)=p, V(X)=p(1-p). 2) Bernoullego (dwumianowy): Określa liczbę sukcesów k w n niezależnych powtórzeniach eksperymentu zero-jedynkowego. P(X=k) = (n po k) * p^k * (1-p)^(n-k). E(X)=np, V(X)=np(1-p). 3) Poissona: Opisuje liczbę zdarzeń rzadkich w określonym czasie/przestrzeni przy intensywności lambda. P(X=k) = (lambda^k * e^-lambda) / k!. Cechą charakterystyczną jest to, że wartość oczekiwana jest równa wariancji: E(X) = V(X) = lambda."
+    },
+    {
+      "id": 18,
+      "pytanie": "Funkcja gęstości prawdopodobieństwa, dystrybuanta i parametry zmiennej ciągłej.",
+      "odpowiedz": "Funkcja gęstości f(x) to funkcja, dla której całka w przedziale (a, b) określa prawdopodobieństwo P(a <= X <= b). Spełnia warunki: f(x) >= 0 oraz całka od -inf do +inf z f(x)dx = 1. Dystrybuanta F(x) to całka od -inf do x z funkcji gęstości f(t)dt, reprezentująca P(X <= x). Parametry: Wartość oczekiwana E(X) to całka od -inf do +inf z x*f(x)dx. Wariancja V(X) to całka od -inf do +inf z (x - E(X))^2 * f(x)dx."
+    },
+    {
+      "id": 19,
+      "pytanie": "Rozkład jednostajny. Funkcja gęstości, parametry.",
+      "odpowiedz": "Rozkład jednostajny ciągły (prostokątny) zachodzi, gdy zmienna losowa może przyjąć wartości z przedziału [a, b] z jednakowym prawdopodobieństwem (stała gęstość). Funkcja gęstości wynosi f(x) = 1/(b-a) dla x należącego do [a, b] oraz f(x) = 0 poza tym przedziałem. Parametry: Wartość oczekiwana (środek przedziału) E(X) = (a + b) / 2. Wariancja V(X) = (b - a)^2 / 12."
+    },
+    {
+      "id": 20,
+      "pytanie": "Rozkład normalny i reguła trzech sigm.",
+      "wymagane_na_3": true,
+      "odpowiedz": "Rozkład normalny (Gaussa) to najważniejszy rozkład ciągły, opisany parametrami mu (średnia) oraz sigma (odchylenie standardowe), o wykresie gęstości w kształcie dzwonu (krzywa Gaussa). Reguła trzech sigm mówi, że dla zmiennej o rozkładzie normalnym: ok. 68.3% obserwacji mieści się w przedziale (mu - sigma, mu + sigma), ok. 95.5% w przedziale (mu - 2*sigma, mu + 2*sigma), a ok. 99.7% (prawie wszystkie) w przedziale (mu - 3*sigma, mu + 3*sigma)."
+    },
+    {
+      "id": 21,
+      "pytanie": "Standardowy rozkład normalny.",
+      "odpowiedz": "Jest to szczególny przypadek rozkładu normalnego, dla którego wartość oczekiwana mu = 0, a odchylenie standardowe sigma = 1, oznaczany jako N(0, 1). Każdą zmienną o dowolnym rozkładzie normalnym N(mu, sigma) można sprowadzić do rozkładu standardowego za pomocą standaryzacji według wzoru: Z = (X - mu) / sigma. Wartości dystrybuanty tego rozkładu (oznaczanej jako Phi(z)) odczytuje się z gotowych tablic statystycznych."
+    },
+    {
+      "id": 22,
+      "pytanie": "Rozkład wykładniczy. Dystrybuanta i funkcja niezawodności.",
+      "odpowiedz": "Rozkład wykładniczy stosuje się często do modelowania czasu między zdarzeniami (np. awariami) przy stałym tempie intensywności lambda > 0. Dystrybuanta dla x >= 0 wynosi F(x) = 1 - e^(-lambda * x). Funkcja niezawodności R(x) (funkcja przeżycia) określa prawdopodobieństwo, że system będzie działał bezawaryjnie dłużej niż czas x i wynosi: R(x) = 1 - F(x) = e^(-lambda * x). Charakteryzuje się brakiem pamięci (własność memoryless)."
+    },
+    {
+      "id": 23,
+      "pytanie": "Próba losowa i statystyka z próby.",
+      "odpowiedz": "Próba losowa to zbiór niezależnych zmiennych losowych X1, X2, ..., Xn pochodzących z tej samej populacji i mających ten sam rozkład. Statystyka z próby to dowolna funkcja mierzalna elementów próby losowej (czyli funkcja t = g(X1, X2, ..., Xn)), która sama jest zmienną losową i nie zależy od nieznanych parametrów rozkładu populacji. Przykładami statystyk są średnia z próby czy wariancja z próby."
+    },
+    {
+      "id": 24,
+      "pytanie": "Estymator i jego własności.",
+      "odpowiedz": "Estymator to statystyka z próby służąca do szacowania nieznanej wartości parametru populacji. Główne pożądane własności estymatora to: 1) Nieobciążoność – wartość oczekiwana estymatora jest równa szacowanemu parametrowi. 2) Efektywność – estymator ma możliwie najmniejszą wariancję spośród wszystkich nieobciążonych estymatorów (jest najbardziej skupiony wokół parametru). 3) Zgodność – wraz ze wzrostem liczebności próby (n) wartość estymatora zbiega z prawdopodobieństwem do szacowanego parametru."
+    },
+    {
+      "id": 25,
+      "pytanie": "Metody estymacji statystycznej.",
+      "odpowiedz": "Estymacja to szacowanie parametrów rozkładu populacji na podstawie danych z próby. Dzieli się na dwa główne podejścia: Estymację punktową (wskazanie jednej konkretnej wartości liczbowej jako oceny parametru) oraz Estymację przedziałową (wyznaczenie przedziału, który z określonym wysokim prawdopodobieństwem zawiera prawdziwą wartość parametru). Do głównych metod poszukiwania estymatorów należą metoda najwyższej wiarygodności (MNW) oraz metoda momentów."
+    },
+    {
+      "id": 26,
+      "pytanie": "Estymacja punktowa i przedziałowa.",
+      "odpowiedz": "Estymacja punktowa polega na obliczeniu na podstawie próby jednej liczby, która ma reprezentować nieznany parametr (np. średnia z próby obliczona jako estymator średniej w populacji). Nie podaje ona jednak precyzji szacunku. Estymacja przedziałowa polega na wyznaczeniu przedziału ufności [θ1, θ2], na podstawie danych z próby, dla którego z góry zakładamy wysokie prawdopodobieństwo (poziom ufności 1 - alfa), że pokryje on szacowany nieznany parametr."
+    },
+    {
+      "id": 27,
+      "pytanie": "Zależności między liczebnością próby, poziomem ufności i długością przedziału ufności.",
+      "odpowiedz": "Między tymi elementami zachodzą następujące relacje: 1) Im wyższy poziom ufności 1 - alfa (chcemy mieć większą pewność), tym przedział ufności staje się szerszy (mniej precyzyjny). 2) Im większa liczebność próby n (mamy więcej danych), tym przedział ufności staje się węższy (bardziej precyzyjny). 3) Aby zmniejszyć długość przedziału ufności (zwiększyć precyzję) przy zachowaniu tego samego poziomu ufności, należy zwiększyć liczebność próby n."
+    }
+  ]
+}
