@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Quiz · Analiza Danych</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #121212;
+      --surface:     #1C1C1C;
+      --card:        #242424;
+      --border:      #303030;
+      --accent:      #BB86FC;
+      --accent-dim:  rgba(187, 134, 252, 0.12);
+      --accent-glow: rgba(187, 134, 252, 0.45);
+      --text-hi:     #E8E8E8;
+      --text-lo:     #9A9A9A;
+      --ok-bg:       rgba(46, 125, 50, 0.22);
+      --ok-border:   #43A047;
+      --ok-text:     #81C784;
+      --err-bg:      rgba(183, 28, 28, 0.22);
+      --err-border:  #E53935;
+      --err-text:    #EF9A9A;
+      --miss-bg:     rgba(46, 125, 50, 0.08);
+    }
+
+    html, body { height: 100%; background: var(--bg); font-family: 'Inter', system-ui, sans-serif; color: var(--text-hi); -webkit-font-smoothing: antialiased; }
+    #root { height: 100%; }
+
+    /* ── Progress ───────────────────────────────────────────────── */
+    .progress-wrap { padding: 20px 20px 0; }
+    .progress-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .progress-label { font-size: 13px; font-weight: 500; color: var(--text-lo); }
+    .progress-label strong { color: #D0D0D0; font-weight: 600; }
+    .progress-pct { font-size: 13px; font-weight: 700; color: var(--accent); }
+    .progress-track { height: 4px; background: var(--border); border-radius: 4px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, #BB86FC, #9A5CFF); border-radius: 4px; transition: width 0.5s cubic-bezier(.4,0,.2,1); box-shadow: 0 0 10px var(--accent-glow); }
+
+    /* ── Layout ─────────────────────────────────────────────────── */
+    .screen  { min-height: 100vh; background: var(--bg); display: flex; flex-direction: column; }
+    .content { flex: 1; padding: 16px 20px 120px; }
+
+    /* ── Question card ──────────────────────────────────────────── */
+    .q-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 24px 20px 20px; }
+    .q-card.fade-in  { animation: fadeSlide .28s cubic-bezier(.4,0,.2,1) both; }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    .multi-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent-dim); border: 1px solid rgba(187,134,252,.28);
+      border-radius: 100px; padding: 5px 12px; margin-bottom: 18px;
+    }
+    .multi-badge-dot  { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .multi-badge-text { font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 0.8px; text-transform: uppercase; }
+
+    .q-text { font-size: 18px; font-weight: 600; line-height: 1.65; color: var(--text-hi); margin-bottom: 22px; }
+
+    /* ── Options ────────────────────────────────────────────────── */
+    .option {
+      display: flex; align-items: center; gap: 14px;
+      padding: 15px 16px; border-radius: 14px;
+      border: 1.5px solid var(--border); background: var(--surface);
+      cursor: pointer; margin-bottom: 10px;
+      transition: border-color .18s, background .18s, transform .12s;
+      -webkit-tap-highlight-color: transparent; user-select: none;
+    }
+    .option:last-child { margin-bottom: 0; }
+    .option:active:not(.disabled) { transform: scale(0.985); }
+    .option.selected { border-color: var(--accent); background: var(--accent-dim); }
+    .option.correct  { border-color: var(--ok-border);  background: var(--ok-bg); }
+    .option.wrong    { border-color: var(--err-border); background: var(--err-bg); }
+    .option.missed   { border-color: var(--ok-border);  background: var(--miss-bg); }
+    .option.disabled { cursor: default; }
+
+    @media (hover: hover) {
+      .option:hover:not(.selected):not(.correct):not(.wrong):not(.missed):not(.disabled) {
+        border-color: rgba(187,134,252,.45); background: rgba(187,134,252,.06); transform: translateY(-1px);
+      }
+    }
+
+    .opt-indicator {
+      width: 34px; height: 34px; min-width: 34px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; border: 1.5px solid #444;
+      font-size: 13px; font-weight: 700; color: var(--text-lo);
+      transition: all .18s ease;
+    }
+    .opt-indicator.square { border-radius: 8px; }
+    .option.selected .opt-indicator { border-color: var(--accent);     background: var(--accent);    color: #0E0E0E; }
+    .option.correct  .opt-indicator { border-color: var(--ok-border);  background: #2E7D32;           color: #fff; }
+    .option.wrong    .opt-indicator { border-color: var(--err-border); background: #B71C1C;           color: #fff; }
+    .option.missed   .opt-indicator { border-color: var(--ok-border);                                color: var(--ok-text); }
+
+    .opt-text { font-size: 16px; line-height: 1.55; color: var(--text-hi); flex: 1; }
+    .option.wrong   .opt-text { color: var(--err-text); }
+    .option.correct .opt-text { color: var(--ok-text); }
+    .option.missed  .opt-text { color: var(--ok-text); }
+
+    /* ── CTA ────────────────────────────────────────────────────── */
+    .cta-area {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      padding: 20px 20px 28px;
+      background: linear-gradient(to top, #121212 60%, transparent);
+    }
+    .btn { width: 100%; padding: 18px; border: none; border-radius: 16px; font-size: 17px; font-weight: 700; letter-spacing: .2px; cursor: pointer; transition: all .2s; }
+    .btn.active   { background: var(--accent); color: #0E0E0E; box-shadow: 0 0 24px var(--accent-glow); }
+    .btn.inactive { background: #262626; color: #484848; cursor: default; }
+    .btn.active:hover  { box-shadow: 0 0 32px var(--accent-glow); transform: translateY(-1px); }
+    .btn.active:active { transform: scale(.98); }
+
+    /* ── Toast ──────────────────────────────────────────────────── */
+    .toast {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 18px; border-radius: 14px; margin-bottom: 14px;
+      border: 1px solid; animation: fadeUp .2s ease both;
+    }
+    .toast.ok  { background: var(--ok-bg);  border-color: var(--ok-border); }
+    .toast.err { background: var(--err-bg); border-color: var(--err-border); }
+    .toast-icon { font-size: 18px; }
+    .toast-msg  { font-size: 15px; font-weight: 600; }
+    .toast.ok  .toast-msg { color: var(--ok-text); }
+    .toast.err .toast-msg { color: var(--err-text); }
+
+    /* ── Full-center screens ────────────────────────────────────── */
+    .full-center { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 20px; }
+
+    /* ── Welcome ────────────────────────────────────────────────── */
+    .welcome-icon  { font-size: 56px; margin-bottom: 20px; }
+    .welcome-title { font-size: 26px; font-weight: 800; color: var(--text-hi); margin-bottom: 10px; }
+    .welcome-sub   { font-size: 15px; color: var(--text-lo); line-height: 1.7; margin-bottom: 28px; max-width: 300px; text-align: center; }
+    .chips-row     { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 32px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent-dim); border: 1px solid rgba(187,134,252,.28);
+      border-radius: 100px; padding: 6px 14px;
+      font-size: 13px; font-weight: 600; color: var(--accent);
+    }
+    .btn-full {
+      width: 100%; max-width: 380px; padding: 18px; border: none; border-radius: 16px;
+      background: var(--accent); color: #0E0E0E; font-size: 17px; font-weight: 700;
+      cursor: pointer; box-shadow: 0 0 24px var(--accent-glow); transition: all .2s;
+    }
+    .btn-full:hover  { transform: translateY(-1px); box-shadow: 0 0 36px var(--accent-glow); }
+    .btn-full:active { transform: scale(.98); }
+
+    /* ── Loading ────────────────────────────────────────────────── */
+    .spinner {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 3px solid var(--border); border-top-color: var(--accent);
+      animation: spin .8s linear infinite; margin-bottom: 20px;
+    }
+    .loading-title { font-size: 16px; font-weight: 600; color: var(--text-lo); animation: pulse 1.4s ease infinite; }
+
+    /* ── Error ──────────────────────────────────────────────────── */
+    .error-card {
+      background: var(--card); border: 1px solid var(--err-border);
+      border-radius: 20px; padding: 32px 24px; max-width: 380px; width: 100%;
+      text-align: center; animation: fadeUp .35s ease both;
+    }
+    .error-icon    { font-size: 40px; margin-bottom: 16px; }
+    .error-title   { font-size: 20px; font-weight: 700; color: var(--text-hi); margin-bottom: 10px; }
+    .error-msg     { font-size: 14px; color: var(--text-lo); line-height: 1.7; margin-bottom: 8px; }
+    .error-code    { font-family: monospace; font-size: 13px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin: 16px 0 24px; color: #BB86FC; text-align: left; white-space: pre-wrap; word-break: break-all; }
+    .error-retry   { margin-top: 12px; }
+
+    /* ── Results ────────────────────────────────────────────────── */
+    .results-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 24px; padding: 36px 28px; max-width: 420px; width: 100%;
+      text-align: center; animation: fadeUp .4s ease both;
+    }
+    .score-ring { position: relative; width: 130px; height: 130px; margin: 0 auto 28px; }
+    .score-ring svg { transform: rotate(-90deg); }
+    .ring-track { fill: none; stroke: var(--border); stroke-width: 8; }
+    .ring-fill  { fill: none; stroke: var(--accent); stroke-width: 8; stroke-linecap: round; filter: drop-shadow(0 0 8px var(--accent-glow)); transition: stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1); }
+    .ring-inner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .ring-pct   { font-size: 26px; font-weight: 800; color: var(--accent); line-height: 1; }
+    .ring-sub   { font-size: 11px; font-weight: 600; color: var(--text-lo); letter-spacing: .5px; margin-top: 3px; }
+    .results-title { font-size: 24px; font-weight: 800; color: var(--text-hi); margin-bottom: 10px; }
+    .results-desc  { font-size: 15px; color: var(--text-lo); line-height: 1.7; margin-bottom: 28px; }
+    .results-desc strong { color: var(--accent); font-weight: 700; }
+    .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+    .stat-box  { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 12px; }
+    .stat-val  { font-size: 22px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+    .stat-val.ok  { color: var(--ok-text); }
+    .stat-val.err { color: var(--err-text); }
+    .stat-label { font-size: 12px; color: var(--text-lo); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useCallback } = React;
+
+    /* ─── Constants ─────────────────────────────────────────────── */
+    const DATA_URL   = './pytania.json';
+    const LETTERS    = ['A','B','C','D','E','F'];
+    const letterToIdx = l => LETTERS.indexOf(l.toUpperCase());
+    const isMulti     = q => q.correct_answers.length > 1;
+
+    function getResultMeta(pct) {
+      if (pct >= 90) return { emoji: '🏆', msg: 'Mistrzowski wynik!' };
+      if (pct >= 75) return { emoji: '⭐', msg: 'Bardzo dobrze!' };
+      if (pct >= 60) return { emoji: '👍', msg: 'Dobry wynik!' };
+      if (pct >= 50) return { emoji: '✅', msg: 'Zaliczone!' };
+      return { emoji: '📚', msg: 'Warto poćwiczyć!' };
+    }
+
+    /* ─── LoadingScreen ─────────────────────────────────────────── */
+    function LoadingScreen() {
+      return (
+        <div className="full-center" style={{flexDirection:'column', gap: 0}}>
+          <div className="spinner" />
+          <p className="loading-title">Ładowanie pytań…</p>
+        </div>
+      );
+    }
+
+    /* ─── ErrorScreen ───────────────────────────────────────────── */
+    function ErrorScreen({ message, onRetry }) {
+      return (
+        <div className="full-center">
+          <div className="error-card">
+            <div className="error-icon">⚠️</div>
+            <h2 className="error-title">Nie można załadować pytań</h2>
+            <p className="error-msg">
+              Plik <code style={{color:'var(--accent)'}}>pytania.json</code> musi być serwowany przez lokalny serwer HTTP.
+              Otwórz terminal w folderze projektu i uruchom jedno z poniższych poleceń:
+            </p>
+            <div className="error-code">{`# Python 3\npython3 -m http.server 8080\n\n# Node.js (npx)\nnpx serve .\n\n# VS Code\nZainstaluj rozszerzenie „Live Server"\ni kliknij „Go Live" w prawym dolnym rogu.`}</div>
+            <p className="error-msg" style={{fontSize:'13px'}}>Szczegóły błędu: <em style={{color:'var(--err-text)'}}>{message}</em></p>
+            <button className="btn-full error-retry" onClick={onRetry}>Spróbuj ponownie</button>
+          </div>
+        </div>
+      );
+    }
+
+    /* ─── ProgressBar ───────────────────────────────────────────── */
+    function ProgressBar({ current, total }) {
+      const fillPct = (current / total) * 100;
+      const donePct = Math.round((current - 1) / total * 100);
+      return (
+        <div className="progress-wrap">
+          <div className="progress-meta">
+            <span className="progress-label">Pytanie <strong>{current}</strong> z {total}</span>
+            <span className="progress-pct">{donePct}%</span>
+          </div>
+          <div className="progress-track">
+            <div className="progress-fill" style={{width: fillPct + '%'}} />
+          </div>
+        </div>
+      );
+    }
+
+    /* ─── OptionTile ────────────────────────────────────────────── */
+    function OptionTile({ letter, text, state, onClick, square, disabled }) {
+      const icon = state === 'correct' ? '✓'
+                 : state === 'wrong'   ? '✕'
+                 : state === 'missed'  ? '✓'
+                 : state === 'selected' && square ? '✓'
+                 : letter;
+
+      const cls = ['option', state !== 'default' ? state : '', disabled ? 'disabled' : '']
+                    .filter(Boolean).join(' ');
+
+      return (
+        <div className={cls} onClick={disabled ? undefined : onClick}
+          role="button" tabIndex={disabled ? -1 : 0}
+          onKeyDown={e => !disabled && e.key === 'Enter' && onClick()}>
+          <div className={`opt-indicator${square ? ' square' : ''}`}>{icon}</div>
+          <span className="opt-text">{text}</span>
+        </div>
+      );
+    }
+
+    /* ─── Toast ─────────────────────────────────────────────────── */
+    function Toast({ correct }) {
+      return (
+        <div className={`toast ${correct ? 'ok' : 'err'}`}>
+          <span className="toast-icon">{correct ? '✓' : '✕'}</span>
+          <span className="toast-msg">{correct ? 'Poprawna odpowiedź!' : 'Błędna odpowiedź'}</span>
+        </div>
+      );
+    }
+
+    /* ─── QuestionCard ──────────────────────────────────────────── */
+    function QuestionCard({ question, selected, feedback, onOption, phase, fadeOut }) {
+      const multi    = isMulti(question);
+      const disabled = phase !== 'answering';
+
+      const getState = i => {
+        if (phase === 'feedback' && feedback[i]) return feedback[i];
+        return selected.has(i) ? 'selected' : 'default';
+      };
+
+      const wasCorrect = phase === 'feedback' &&
+        Object.values(feedback).some(v => v === 'correct') &&
+        !Object.values(feedback).some(v => v === 'wrong');
+
+      return (
+        <div style={{opacity: fadeOut ? 0 : 1, transition: 'opacity .22s ease'}}>
+          {phase === 'feedback' && <Toast correct={wasCorrect} />}
+          <div className="q-card fade-in">
+            {multi && (
+              <div className="multi-badge">
+                <div className="multi-badge-dot" />
+                <span className="multi-badge-text">Wielokrotny wybór</span>
+              </div>
+            )}
+            <p className="q-text">{question.question}</p>
+            {question.options.map((opt, i) => (
+              <OptionTile
+                key={i}
+                letter={LETTERS[i]}
+                text={opt}
+                state={getState(i)}
+                onClick={() => onOption(i)}
+                square={multi}
+                disabled={disabled}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    /* ─── ScoreRing ─────────────────────────────────────────────── */
+    function ScoreRing({ pct }) {
+      const r     = 54;
+      const circ  = 2 * Math.PI * r;
+      const offset = circ * (1 - pct / 100);
+      return (
+        <div className="score-ring">
+          <svg viewBox="0 0 120 120" width="130" height="130">
+            <circle className="ring-track" cx="60" cy="60" r={r} />
+            <circle className="ring-fill"  cx="60" cy="60" r={r}
+              strokeDasharray={circ} strokeDashoffset={offset} />
+          </svg>
+          <div className="ring-inner">
+            <span className="ring-pct">{pct}%</span>
+            <span className="ring-sub">WYNIK</span>
+          </div>
+        </div>
+      );
+    }
+
+    /* ─── ResultsScreen ─────────────────────────────────────────── */
+    function ResultsScreen({ score, total, onRestart }) {
+      const pct   = Math.round((score / total) * 100);
+      const wrong = total - score;
+      const { emoji, msg } = getResultMeta(pct);
+      return (
+        <div className="full-center">
+          <div className="results-card">
+            <ScoreRing pct={pct} />
+            <h1 className="results-title">{emoji} {msg}</h1>
+            <p className="results-desc">
+              Odpowiedziałeś poprawnie na <strong>{score}</strong> z <strong>{total}</strong> pytań.
+            </p>
+            <div className="stats-row">
+              <div className="stat-box">
+                <div className="stat-val ok">{score}</div>
+                <div className="stat-label">Poprawne</div>
+              </div>
+              <div className="stat-box">
+                <div className="stat-val err">{wrong}</div>
+                <div className="stat-label">Błędne</div>
+              </div>
+            </div>
+            <button className="btn-full" onClick={onRestart}>↺ &nbsp;Zacznij od nowa</button>
+          </div>
+        </div>
+      );
+    }
+
+    /* ─── WelcomeScreen ─────────────────────────────────────────── */
+    function WelcomeScreen({ total, onStart }) {
+      return (
+        <div className="full-center" style={{textAlign:'center'}}>
+          <div className="welcome-icon">📊</div>
+          <h1 className="welcome-title">Quiz · Analiza Danych</h1>
+          <p className="welcome-sub">
+            Sprawdź swoją wiedzę z zakresu statystyki, SQL, BI, Excela i formatów danych.
+          </p>
+          <div className="chips-row">
+            <div className="chip">📋 {total} pytań</div>
+            <div className="chip">🎯 Tryb nauki</div>
+            <div className="chip">☑️ Wielokrotny wybór</div>
+          </div>
+          <button className="btn-full" onClick={onStart}>Rozpocznij quiz</button>
+        </div>
+      );
+    }
+
+    /* ─── QuizApp ────────────────────────────────────────────────── */
+    function QuizApp({ questions }) {
+      const [screen,   setScreen]   = useState('welcome');
+      const [idx,      setIdx]      = useState(0);
+      const [selected, setSelected] = useState(new Set());
+      const [phase,    setPhase]    = useState('answering');
+      const [feedback, setFeedback] = useState({});
+      const [score,    setScore]    = useState(0);
+      const [cardKey,  setCardKey]  = useState(0);
+      const timer = useRef(null);
+
+      const q           = questions[idx];
+      const multi       = isMulti(q);
+      const correctIdxs = new Set(q.correct_answers.map(letterToIdx));
+      const canSubmit   = selected.size > 0 && phase === 'answering';
+
+      const clearTimer = () => { if (timer.current) clearTimeout(timer.current); };
+
+      const handleOption = useCallback(i => {
+        if (phase !== 'answering') return;
+        if (multi) {
+          setSelected(prev => {
+            const next = new Set(prev);
+            next.has(i) ? next.delete(i) : next.add(i);
+            return next;
+          });
+        } else {
+          setSelected(new Set([i]));
+        }
+      }, [phase, multi]);
+
+      const handleSubmit = useCallback(() => {
+        if (!canSubmit) return;
+        clearTimer();
+
+        const isOk = [...correctIdxs].every(i => selected.has(i)) &&
+                     [...selected].every(i => correctIdxs.has(i));
+        if (isOk) setScore(s => s + 1);
+
+        const fb = {};
+        q.options.forEach((_, i) => {
+          if (correctIdxs.has(i)  && selected.has(i))  fb[i] = 'correct';
+          if (!correctIdxs.has(i) && selected.has(i))  fb[i] = 'wrong';
+          if (correctIdxs.has(i)  && !selected.has(i)) fb[i] = 'missed';
+        });
+
+        setFeedback(fb);
+        setPhase('feedback');
+
+        timer.current = setTimeout(() => {
+          setPhase('out');
+          timer.current = setTimeout(() => {
+            const next = idx + 1;
+            if (next >= questions.length) {
+              setScreen('results');
+            } else {
+              setIdx(next);
+              setSelected(new Set());
+              setFeedback({});
+              setPhase('answering');
+              setCardKey(k => k + 1);
+            }
+          }, 250);
+        }, 1600);
+      }, [canSubmit, selected, correctIdxs, idx, q.options, questions.length]);
+
+      const handleRestart = () => {
+        clearTimer();
+        setIdx(0); setSelected(new Set()); setFeedback({});
+        setPhase('answering'); setScore(0); setCardKey(0); setScreen('quiz');
+      };
+
+      useEffect(() => () => clearTimer(), []);
+
+      if (screen === 'welcome')
+        return <WelcomeScreen total={questions.length} onStart={() => setScreen('quiz')} />;
+      if (screen === 'results')
+        return <ResultsScreen score={score} total={questions.length} onRestart={handleRestart} />;
+
+      return (
+        <div className="screen">
+          <ProgressBar current={idx + 1} total={questions.length} />
+          <div className="content">
+            <QuestionCard
+              key={cardKey}
+              question={q}
+              selected={selected}
+              feedback={feedback}
+              onOption={handleOption}
+              phase={phase}
+              fadeOut={phase === 'out'}
+            />
+          </div>
+          <div className="cta-area">
+            <button
+              className={`btn ${canSubmit ? 'active' : 'inactive'}`}
+              onClick={handleSubmit}
+              disabled={!canSubmit}
+            >
+              {multi ? 'Zatwierdź wybór' : 'Dalej'}
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    /* ─── Root App — ładuje JSON, zarządza stanem ────────────────── */
+    function App() {
+      const [questions, setQuestions] = useState(null);
+      const [loading,   setLoading]   = useState(true);
+      const [error,     setError]     = useState(null);
+
+      const load = useCallback(() => {
+        setLoading(true);
+        setError(null);
+
+        fetch(DATA_URL)
+          .then(res => {
+            if (!res.ok) throw new Error(`HTTP ${res.status} – ${res.statusText}`);
+            return res.json();
+          })
+          .then(data => {
+            if (!Array.isArray(data) || data.length === 0)
+              throw new Error('Plik JSON jest pusty lub ma nieprawidłowy format.');
+            setQuestions(data);
+            setLoading(false);
+          })
+          .catch(err => {
+            setError(err.message || 'Nieznany błąd');
+            setLoading(false);
+          });
+      }, []);
+
+      useEffect(() => { load(); }, [load]);
+
+      if (loading)         return <LoadingScreen />;
+      if (error)           return <ErrorScreen message={error} onRetry={load} />;
+      return               <QuizApp questions={questions} />;
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

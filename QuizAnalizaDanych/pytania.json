@@ -1,0 +1,553 @@
+[
+    {
+      "id": 1,
+      "question": "Średnia arytmetyczna zbioru 2, 4, 6, 8 wynosi:",
+      "options": ["4", "5", "6", "7"],
+      "correct_answers": ["B"]
+    },
+    {
+      "id": 2,
+      "question": "Mediana zbioru 1, 3, 5, 7, 9 wynosi:",
+      "options": ["3", "7", "5", "9"],
+      "correct_answers": ["C"]
+    },
+    {
+      "id": 3,
+      "question": "Dominanta (moda) to:",
+      "options": [
+        "Największa wartość w zbiorze",
+        "Średnia wartość",
+        "Środkowa wartość",
+        "Najczęściej występująca wartość"
+      ],
+      "correct_answers": ["D"]
+    },
+    {
+      "id": 4,
+      "question": "Wariancja mierzy:",
+      "options": [
+        "Średnią wartość danych",
+        "Rozproszenie danych wokół średniej",
+        "Liczbę obserwacji",
+        "Korelację"
+      ],
+      "correct_answers": ["B"]
+    },
+    {
+      "id": 5,
+      "question": "Odchylenie standardowe:",
+      "options": [
+        "Jest pierwiastkiem z wariancji",
+        "Jest średnią danych",
+        "Jest medianą danych",
+        "Jest dominantą"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 6,
+      "question": "Która miara jest najmniej wrażliwa na wartości odstające?",
+      "options": ["Średnia", "Wariancja", "Mediana", "Odchylenie standardowe"],
+      "correct_answers": ["C"]
+    },
+    {
+      "id": 7,
+      "question": "Korelacja dodatnia oznacza:",
+      "options": [
+        "Brak związku między zmiennymi",
+        "Wzrost jednej zmiennej powoduje spadek drugiej",
+        "Wzrost jednej zmiennej wiąże się ze wzrostem drugiej",
+        "Dane są losowe"
+      ],
+      "correct_answers": ["C"]
+    },
+    {
+      "id": 8,
+      "question": "Współczynnik korelacji Pearsona przyjmuje wartości:",
+      "options": ["Od 0 do 1", "Od -1 do 1", "Od 1 do 100", "Dowolne liczby rzeczywiste"],
+      "correct_answers": ["B"]
+    },
+    {
+      "id": 9,
+      "question": "Percentyl 50 odpowiada:",
+      "options": ["Średniej", "Medianie", "Dominancie", "Maksimum"],
+      "correct_answers": ["B"]
+    },
+    {
+      "id": 10,
+      "question": "Histogram służy do:",
+      "options": [
+        "Analizy rozkładu danych",
+        "Tworzenia relacji między tabelami",
+        "Analizy kodu SQL",
+        "Projektowania UML"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 11,
+      "question": "ETL oznacza:",
+      "options": [
+        "Extract, Transform, Load",
+        "Execute, Test, Load",
+        "Extract, Transfer, Link",
+        "Evaluate, Transform, Link"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 12,
+      "question": "Celem czyszczenia danych jest:",
+      "options": [
+        "Usunięcie błędów i niespójności",
+        "Zwiększenie liczby rekordów",
+        "Usunięcie wszystkich wartości NULL",
+        "Kompresja danych"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 13,
+      "question": "Missing values to:",
+      "options": ["Klucze główne", "Brakujące dane", "Dane zagregowane", "Dane zduplikowane"],
+      "correct_answers": ["B"]
+    },
+    {
+      "id": 14,
+      "question": "Data Warehouse służy do:",
+      "options": [
+        "Analizy danych historycznych",
+        "Przechowywania kodu źródłowego",
+        "Projektowania UML",
+        "Zarządzania systemem operacyjnym"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 15,
+      "question": "KPI oznacza:",
+      "options": [
+        "Key Performance Indicator",
+        "Key Process Integration",
+        "Known Performance Index",
+        "Key Programming Interface"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 16,
+      "question": "Dashboard służy do:",
+      "options": [
+        "Wizualizacji danych",
+        "Kompilacji kodu",
+        "Projektowania baz danych",
+        "Testowania aplikacji"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 17,
+      "question": "Data mining oznacza:",
+      "options": ["Eksplorację danych", "Kompresję danych", "Szyfrowanie danych", "Usuwanie danych"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 18,
+      "question": "Outlier to:",
+      "options": ["Wartość odstająca", "Średnia", "Mediana", "Klucz obcy"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 19,
+      "question": "Grupowanie danych w Power BI wykonuje się m.in. przez:",
+      "options": ["Grupowanie kategorii", "Indeksy SQL", "XML Schema", "JSON Schema"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 20,
+      "question": "Data Lake:",
+      "options": [
+        "Przechowuje dane w różnych formatach",
+        "Jest bazą relacyjną",
+        "Jest językiem programowania",
+        "Jest diagramem UML"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 21,
+      "question": "Która funkcja agregująca liczy rekordy?",
+      "options": ["SUM", "COUNT", "AVG", "MAX"],
+      "correct_answers": ["B"]
+    },
+    {
+      "id": 22,
+      "question": "Business Intelligence służy do:",
+      "options": [
+        "Wspierania decyzji biznesowych",
+        "Tworzenia systemu operacyjnego",
+        "Kompilacji kodu",
+        "Projektowania UML"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 23,
+      "question": "Normalizacja danych ma na celu:",
+      "options": [
+        "Ograniczenie redundancji",
+        "Zwiększenie liczby rekordów",
+        "Zmniejszenie pamięci RAM",
+        "Kompresję plików"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 24,
+      "question": "Profilowanie danych służy do:",
+      "options": [
+        "Oceny jakości danych",
+        "Projektowania interfejsów",
+        "Tworzenia raportów PDF",
+        "Kompilacji"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 25,
+      "question": "Agregacja danych polega na:",
+      "options": ["Grupowaniu i podsumowywaniu danych", "Usuwaniu danych", "Szyfrowaniu danych", "Łączeniu serwerów"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 26,
+      "question": "Narzędziem BI jest:",
+      "options": ["Power BI", "Visual Studio", "Notepad", "Paint"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 27,
+      "question": "Analiza predykcyjna służy do:",
+      "options": [
+        "Prognozowania przyszłych zdarzeń",
+        "Kompilacji kodu",
+        "Normalizacji bazy danych",
+        "Projektowania UML"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 28,
+      "question": "Dane jakościowe to:",
+      "options": ["Kategorie i opisy", "Liczby całkowite", "Liczby zmiennoprzecinkowe", "Wyniki agregacji"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 29,
+      "question": "Dane ilościowe to:",
+      "options": ["Dane liczbowe", "Dane tekstowe", "Dane XML", "Dane JSON"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 30,
+      "question": "Raport analityczny powinien:",
+      "options": [
+        "Być czytelny i zrozumiały",
+        "Zawierać wyłącznie tabele",
+        "Nie zawierać wizualizacji",
+        "Nie zawierać wniosków"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 31,
+      "question": "Która instrukcja pobiera dane?",
+      "options": ["SELECT", "INSERT", "UPDATE", "DELETE"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 32,
+      "question": "Która klauzula filtruje wyniki?",
+      "options": ["GROUP BY", "ORDER BY", "WHERE", "JOIN"],
+      "correct_answers": ["C"]
+    },
+    {
+      "id": 33,
+      "question": "COUNT(*) zwraca:",
+      "options": ["Suma wartości", "Liczbę rekordów", "Średnią", "Maksimum"],
+      "correct_answers": ["B"]
+    },
+    {
+      "id": 34,
+      "question": "AVG() służy do:",
+      "options": ["Liczenia rekordów", "Średniej wartości", "Maksimum", "Minimum"],
+      "correct_answers": ["B"]
+    },
+    {
+      "id": 35,
+      "question": "Klucz główny to:",
+      "options": ["Primary Key", "Foreign Key", "Unique Key", "Index"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 36,
+      "question": "INNER JOIN zwraca:",
+      "options": [
+        "Wszystkie rekordy obu tabel",
+        "Rekordy pasujące w obu tabelach",
+        "Tylko rekordy z lewej tabeli",
+        "Tylko rekordy z prawej tabeli"
+      ],
+      "correct_answers": ["B"]
+    },
+    {
+      "id": 37,
+      "question": "ORDER BY służy do:",
+      "options": ["Sortowania wyników", "Łączenia tabel", "Grupowania", "Aktualizacji danych"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 38,
+      "question": "INSERT służy do:",
+      "options": ["Dodawania danych", "Usuwania danych", "Modyfikacji danych", "Pobierania danych"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 39,
+      "question": "UPDATE służy do:",
+      "options": ["Aktualizacji danych", "Dodawania danych", "Usuwania danych", "Tworzenia tabel"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 40,
+      "question": "DELETE służy do:",
+      "options": ["Usuwania danych", "Dodawania danych", "Łączenia tabel", "Sortowania"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 41,
+      "question": "JSON Oznacza:",
+      "options": [
+        "JavaScript Object Notation",
+        "Java Standard Object Notation",
+        "Java Source Object Name",
+        "Joint System Object Notation"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 42,
+      "question": "XML oznacza:",
+      "options": [
+        "eXtensible Markup Language",
+        "Extended Model Language",
+        "Extra Markup Link",
+        "XML Modeling Language"
+      ],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 43,
+      "question": "W JSON obiekt zapisujemy przy użyciu:",
+      "options": ["{}", "[]", "<>", "()"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 44,
+      "question": "Tablica w JSON jest oznaczana:",
+      "options": ["{}", "[]", "<>", "()"],
+      "correct_answers": ["C"]
+    },
+    {
+      "id": 45,
+      "question": "XML posiada:",
+      "options": ["Znaczniki (tagi)", "Klucze obce", "Klasy UML", "Interfejsy"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 46,
+      "question": "Model relacyjny opiera się na:",
+      "options": ["Tabelach", "Obiektach", "Klasach", "Dokumentach"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 47,
+      "question": "Klucz obcy:",
+      "options": ["Tworzy relację między tabelami", "Jest indeksem", "Jest JSON-em", "Jest XML-em"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 48,
+      "question": "Encja w modelowaniu danych odpowiada:",
+      "options": ["Obiektowi biznesowemu", "Instrukcji SQL", "Tabeli systemowej", "Raportowi"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 49,
+      "question": "JSON jest często używany:",
+      "options": ["W API REST", "W UML", "W SQL JOIN", "W CLR"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 50,
+      "question": "XML Schema (XSD) służy do:",
+      "options": ["Walidacji dokumentów XML", "Tworzenia JSON", "Łączenia tabel", "Kompilacji"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 51,
+      "question": "Które są miarami tendencji centralnej?",
+      "options": ["Średnia", "Mediana", "Dominanta", "Wariancja"],
+      "correct_answers": ["A", "B", "C"]
+    },
+    {
+      "id": 52,
+      "question": "Które funkcje SQL są agregujące?",
+      "options": ["COUNT", "SUM", "AVG", "MAX"],
+      "correct_answers": ["A", "B", "C", "D"]
+    },
+    {
+      "id": 53,
+      "question": "Które formaty są tekstowymi formatami wymiany danych?",
+      "options": ["JSON", "XML", "CSV", "YAML"],
+      "correct_answers": ["A", "B", "C", "D"]
+    },
+    {
+      "id": 54,
+      "question": "Które elementy występują w modelu relacyjnym?",
+      "options": ["Tabele", "Kolumny", "Wiersze", "Relacje"],
+      "correct_answers": ["A", "B", "C", "D"]
+    },
+    {
+      "id": 55,
+      "question": "Które są zaletami hurtowni danych?",
+      "options": ["Integracja danych", "Analiza historyczna", "Raportowanie", "Wsparcie BI"],
+      "correct_answers": ["A", "B", "C", "D"]
+    },
+    {
+      "id": 56,
+      "question": "Które operacje należą do ETL?",
+      "options": ["Extract", "Transform", "Load", "Link"],
+      "correct_answers": ["A", "B", "C"]
+    },
+    {
+      "id": 57,
+      "question": "Które elementy mogą występować w dashboardzie?",
+      "options": ["Wykresy", "Tabele", "KPI", "Filtry"],
+      "correct_answers": ["A", "B", "C", "D"]
+    },
+    {
+      "id": 58,
+      "question": "Które typy JOIN występują w SQL?",
+      "options": ["INNER JOIN", "LEFT JOIN", "RIGHT JOIN", "FULL JOIN"],
+      "correct_answers": ["A", "B", "C", "D"]
+    },
+    {
+      "id": 59,
+      "question": "Która formuła obliczy sumę wartości z komórek A1:A10?",
+      "options": ["=SUMA(A1:A10)", "=COUNT(A1:A10)", "=ŚREDNIA(A1:A10)", "=MAX(A1:A10)"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 60,
+      "question": "Która formuła obliczy średnią z zakresu B1:B20?",
+      "options": ["=SUMA(B1:B20)", "=AVG(B1:B20)", "=ŚREDNIA(B1:B20)", "=MEDIANA(B1:B20)"],
+      "correct_answers": ["C"]
+    },
+    {
+      "id": 61,
+      "question": "Która formuła zwróci największą wartość z zakresu C1:C100?",
+      "options": ["=DUŻY(C1:C100)", "=MAX(C1:C100)", "=MIN(C1:C100)", "=ŚREDNIA(C1:C100)"],
+      "correct_answers": ["B"]
+    },
+    {
+      "id": 62,
+      "question": "Która formuła policzy liczbę komórek zawierających dane?",
+      "options": ["=ILE.LICZB(A1:A100)", "=SUMA(A1:A100)", "=LICZ.JEŻELI(A1:A100;\">0\")", "=ILE.NIEPUSTYCH(A1:A100)"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 63,
+      "question": "W kolumnie A znajdują się wyniki egzaminu. Która formuła zwróci napis \"ZALICZONE\", gdy wynik jest większy lub równy 50?",
+      "options": ["=JEŻELI(A1>=50;\"ZALICZONE\";\"NIEZALICZONE\")", "=JEŻELI(A1<=50;\"ZALICZONE\";\"NIEZALICZONE\")", "=SUMA(A1>=50)", "=COUNT(A1>=50)"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 64,
+      "question": "Która formuła policzy liczbę osób z wynikiem powyżej 80 punktów?",
+      "options": ["=LICZ.JEŻELI(B1:B100;\">80\")", "=COUNT(B1:B100)", "=SUMA(B1:B100)", "=ŚREDNIA(B1:B100)"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 65,
+      "question": "Która formuła zwróci najmniejszą wartość z zakresu D1:D50?",
+      "options": ["=MIN(D1:D50)", "=MAX(D1:D50)", "=MEDIANA(D1:D50)", "=ŚREDNIA(D1:D50)"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 66,
+      "question": "Które formuły mogą służyć do wyszukania danych w tabeli?",
+      "options": ["=WYSZUKAJ.PIONOWO(...)", "=WYSZUKAJ.POZIOMO(...)", "=ILE.NIEPUSTYCH(...)", "=SUMA(...)"],
+      "correct_answers": ["A", "B"]
+    },
+    {
+      "id": 67,
+      "question": "W komórce A1 znajduje się cena netto, a stawka VAT wynosi 23%. Która formuła obliczy cenę brutto?",
+      "options": ["=A1*1,23", "=A1+23", "=A1/1,23", "=A1*23"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 68,
+      "question": "Która formuła policzy sumę sprzedaży produktów tylko dla produktu \"Laptop\"?",
+      "options": ["=SUMA.JEŻELI(A:A;\"Laptop\";B:B)", "=LICZ.JEŻELI(A:A;\"Laptop\";B:B)", "=JEŻELI(A1==\"Laptop\";SUMA(A1);0)", "=SUMA.JEŻELI(A:A;\"Laptop\";1)"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 69,
+      "question": "Która formuła zwróci długość tekstu znajdującego się w komórce A1?",
+      "options": ["=DL(A1)", "=LEWY(A1)", "=PRAWY(A1)", "=FRAGMENT.TEKSTU(A1)"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 70,
+      "question": "Która funkcja oblicza sumę wartości w zakresie komórek?",
+      "options": ["COUNT()", "SUMA()", "ŚREDNIA()", "JEŻELI()"],
+      "correct_answers": ["B"]
+    },
+    {
+      "id": 71,
+      "question": "Funkcja ŚREDNIA() służy do:",
+      "options": ["Jest funkcją matematyczną", "Obliczania średniej ważonej", "Obliczania średniej arytmetycznej", "Wyszukiwania danych matematycznych"],
+      "correct_answers": ["A", "C"]
+    },
+    {
+      "id": 72,
+      "question": "Funkcja JEŻELI() umożliwia:",
+      "options": ["Sortowanie danych", "Tworzenie warunków logicznych", "Tworzenie tabel przestawnych", "Jest elementem filtrowanie danych w kolumnach i wierszach"],
+      "correct_answers": ["B"]
+    },
+    {
+      "id": 73,
+      "question": "Tabela przestawna służy głównie do:",
+      "options": ["Analizy i agregacji danych", "Pisania makr VBA", "Formatowania arkusza", "Drukowania raportów"],
+      "correct_answers": ["A"]
+    },
+    {
+      "id": 74,
+      "question": "W tabeli przestawnej można:",
+      "options": ["Grupować dane", "Sumować dane", "Filtrować dane", "Tworzyć zestawienia"],
+      "correct_answers": ["A", "B", "C", "D"]
+    },
+    {
+      "id": 75,
+      "question": "Który obszar tabeli przestawnej służy do filtrowania całego raportu?",
+      "options": ["Wiersze", "Kolumny", "Filtry", "Wartości"],
+      "correct_answers": ["C"]
+    },
+    {
+      "id": 76,
+      "question": "Które funkcje należą do funkcji analitycznych Excela?",
+      "options": ["SUMA()", "ŚREDNIA()", "JEŻELI()", "WYSZUKAJ.PIONOWO()"],
+      "correct_answers": ["A", "B", "C", "D"]
+    }
+  ]
