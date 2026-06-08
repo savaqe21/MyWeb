@@ -121,6 +121,8 @@ a:hover::after {
 .category:nth-of-type(1) a:hover::after { background: #00f2ff; } /* Cyjan dla gier */
 .category:nth-of-type(2) a:hover::after { background: #7000ff; } /* Fiolet dla portfolio */
 .category:nth-of-type(3) a:hover::after { background: #ff0055; } /* Róż dla projektu dla partnerki */
+.category:nth-of-type(4) a:hover::after { background: #39ff14; } /* Neonowa zieleń dla quizów */
+.category:nth-of-type(5) a:hover::after { background: #ff6c00; } /* Pomarańczowy dla prywaty */
 
 /* Responsywność */
 @media (max-width: 768px) {
